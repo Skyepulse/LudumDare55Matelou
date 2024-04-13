@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds8miv08kfd8b"]
+[gd_scene load_steps=4 format=3 uid="uid://61jstfsygvvw"]
 
 [ext_resource type="Texture2D" uid="uid://kxp5msi074dk" path="res://icon.svg" id="1_worfy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fadwu"]
+radius = 76.99
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsrwo"]
+radius = 182.26
 
 [node name="player" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(539, 258)
 texture = ExtResource("1_worfy")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_fadwu")
+one_way_collision_margin = 0.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xsrwo")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://wmligx84g6aq"]
+
+[ext_resource type="PackedScene" uid="uid://ds8miv08kfd8b" path="res://Scenes/player.tscn" id="1_xbk1u"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1mgtf"]
+size = Vector2(100, 1000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o51l8"]
+size = Vector2(100, 1000)
+
+[node name="MAELTESTSCENE" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("1_xbk1u")]
+
+[node name="simple wall" type="MeshInstance2D" parent="."]
+position = Vector2(-447, -3)
+mesh = SubResource("QuadMesh_1mgtf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="simple wall"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="simple wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_o51l8")
