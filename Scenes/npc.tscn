@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2n8233urbkoq"]
+
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_7ymix"]
+[ext_resource type="Texture2D" uid="uid://c8sikn87ors4s" path="res://NPC-placeholder.svg" id="1_qvi7r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wx5bg"]
+radius = 57.85
+height = 144.41
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_7ymix")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.185272, 0.159705)
+texture = ExtResource("1_qvi7r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_wx5bg")
