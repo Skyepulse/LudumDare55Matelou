@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://61jstfsygvvw"]
+[gd_scene load_steps=5 format=3 uid="uid://61jstfsygvvw"]
 
 [ext_resource type="Texture2D" uid="uid://kxp5msi074dk" path="res://icon.svg" id="1_worfy"]
+[ext_resource type="Script" path="res://Scripts/playerM.gd" id="2_atlme"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fadwu"]
 radius = 76.99
@@ -10,16 +11,22 @@ radius = 182.26
 
 [node name="player" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_worfy")
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_atlme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_fadwu")
 one_way_collision_margin = 0.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_worfy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
 shape = SubResource("CircleShape2D_xsrwo")
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
