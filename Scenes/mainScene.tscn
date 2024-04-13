@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bat355yqjpxwa"]
+[gd_scene load_steps=3 format=3 uid="uid://bat355yqjpxwa"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
+[ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 
 [node name="mainScene" type="Node2D"]
 
 [node name="mapMainNode" parent="." instance=ExtResource("1_awtvf")]
+scale = Vector2(4, 4)
+
+[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_0ef22")]
+position = Vector2(32, 40)
+camera = NodePath("../MainCamera")
+
+[node name="MainCamera" type="Camera2D" parent="."]

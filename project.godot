@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LudumDare55"
-run/main_scene="res://Scenes/maeltestscene.tscn"
+run/main_scene="res://Scenes/mainScene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -58,3 +58,4 @@ interact={
 2d_physics/layer_2="collisions"
 2d_physics/layer_3="NPC"
 2d_physics/layer_4="walkable"
+2d_physics/layer_5="not_walkable"
