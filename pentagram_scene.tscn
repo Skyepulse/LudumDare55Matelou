@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://d2wae4314v3us"]
-
-[node name="pentagramScene" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

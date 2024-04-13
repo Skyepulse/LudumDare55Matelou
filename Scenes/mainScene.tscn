@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://wofo5jwtaidg"]
+[gd_scene load_steps=4 format=3 uid="uid://wofo5jwtaidg"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_n6j4x"]
 [ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 
 [node name="mainScene" type="Node2D"]
+script = ExtResource("1_n6j4x")
 
 [node name="mapMainNode" parent="." instance=ExtResource("1_awtvf")]
-scale = Vector2(10.4, 10.4)
+scale = Vector2(5.2, 5.2)
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_0ef22")]
 position = Vector2(-65, 1551)
