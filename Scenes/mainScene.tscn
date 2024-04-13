@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bat355yqjpxwa"]
+[gd_scene load_steps=4 format=3 uid="uid://bat355yqjpxwa"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
+[ext_resource type="PackedScene" uid="uid://6s5dywlo2tph" path="res://Scenes/npc_talk_view.tscn" id="1_fo62l"]
 [ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 
 [node name="mainScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NPC_TALK_VIEW" parent="CanvasLayer" instance=ExtResource("1_fo62l")]
 
 [node name="mapMainNode" parent="." instance=ExtResource("1_awtvf")]
 scale = Vector2(4, 4)
