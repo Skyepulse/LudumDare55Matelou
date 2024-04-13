@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://wofo5jwtaidg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7mxg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e44tx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0w7d6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_coi5r"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="main" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_i7mxg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_e44tx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1236, 0)
+mesh = SubResource("PlaneMesh_0w7d6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_coi5r")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.04189)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.219284, 0.932267, 0.287737, -0.565085, -0.361771, 0.741485, 0.795357, 3.74575e-08, 0.606141, 1.28153, 1.49133, 1.35861)
