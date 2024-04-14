@@ -1,0 +1,52 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+[gd_scene load_steps=5 format=3 uid="uid://b3ovcxlerm5b6"]
+
+[ext_resource type="Texture2D" uid="uid://btf4s88oc7kn8" path="res://media/stat_bar.png" id="1_qkphe"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://x274pwot07ml"]
+
+[ext_resource type="Texture2D" path="res://media/stat_bar.png" id="1_qkphe"]
+>>>>>>> pierina
+=======
+
+[gd_scene load_steps=5 format=3 uid="uid://x274pwot07ml"]
+
+[ext_resource type="Texture2D" path="res://media/stat_bar.png" id="1_qkphe"]
+>>>>>>> fdca70349b813e9ee4a4eae10ef4e51cece7368f
+[ext_resource type="Script" path="res://Scripts/Kiss_progress.gd" id="1_w2bup"]
+[ext_resource type="Script" path="res://Scripts/Marry_progress.gd" id="2_enc51"]
+[ext_resource type="Script" path="res://Scripts/Kill_progress.gd" id="3_abonf"]
+
+[node name="progress_control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Kiss_progress" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+texture_over = ExtResource("1_qkphe")
+script = ExtResource("1_w2bup")
+
+[node name="Marry_progress" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+texture_over = ExtResource("1_qkphe")
+script = ExtResource("2_enc51")
+
+[node name="Kill_progress" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+texture_over = ExtResource("1_qkphe")
+script = ExtResource("3_abonf")

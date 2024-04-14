@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1jgj116f24yc"
-path="res://.godot/imported/small_pentagram.png-99b005b3278d8afd4133df3dd724d34a.ctex"
+uid="uid://d3xa17pg02gnr"
+path="res://.godot/imported/cat-o-nine-tails.png-43ea0bddfb39ea72882ddc126d90b7ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pentagrams/small_pentagram.png"
-dest_files=["res://.godot/imported/small_pentagram.png-99b005b3278d8afd4133df3dd724d34a.ctex"]
+source_file="res://media/items/cat-o-nine-tails.png"
+dest_files=["res://.godot/imported/cat-o-nine-tails.png-43ea0bddfb39ea72882ddc126d90b7ed.ctex"]
 
 [params]
 
