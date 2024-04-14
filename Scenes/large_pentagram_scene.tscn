@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cicilcghva3cs"]
+[gd_scene load_steps=3 format=3 uid="uid://cicilcghva3cs"]
+
+[ext_resource type="Script" path="res://Scenes/pentagram.gd" id="1_wmadj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixfj2"]
 
@@ -6,6 +8,7 @@
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(5.2, 5.2)
+script = ExtResource("1_wmadj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 
