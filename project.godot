@@ -27,13 +27,20 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
-"AzazaelMeet2": "res://Dialogues/AzazaelMeet2.dtl",
-"MainTimeline": "res://Dialogues/MainTimeline.dtl"
+"AzazaelMeet2": "res://Dialogues/Azazael/AzazaelMeet2.dtl",
+"AzazaelMeet3": "res://Dialogues/Azazael/AzazaelMeet3.dtl",
+"AzazaelZouk": "res://Dialogues/Azazael/AzazaelZouk.dtl",
+"Gift1": "res://Dialogues/Azazael/Gift1.dtl",
+"Gifts": "res://Dialogues/Azazael/Gifts.dtl",
+"RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
+"RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogues/Style.tres"]
 layout/default_style="res://Dialogues/Style.tres"
-variables={}
+variables={
+"Gift": ""
+}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1

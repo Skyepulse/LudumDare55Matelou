@@ -1,0 +1,8 @@
+Azazael: Oh, hello there. My quest for the exit has not progressed much, but I've started to accept my fate. I think I'll start drinking.
+- Isn't that risky for your job?
+	... I mean, it's not like I can do my job from here anyway.
+- Wouldn't you like to learn to dance zouk instead? You, me, music, at my place.
+	if randi() % 20 >= 10:
+		Azazael: You know what? Yeah, let's go.
+	else:
+		Azazael: On second thought, I'm gonna pass. I'm still an angel, after all.
