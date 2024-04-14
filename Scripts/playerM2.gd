@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @export var camera:Camera2D
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
@@ -147,4 +149,14 @@ func hide_dash_wing_ui():
 func show_dash_wing_ui():
 	dashWingUi.show()
 
+func add_kill_stat(value):
+	KILL_STAT=max(value+KILL_STAT,100)
+	kill_changed.emit()
 
+func add_kiss_stat(value):
+	KISS_STAT=max(value+KISS_STAT,100)
+	kiss_changed.emit()
+	
+func add_marry_stat(value):
+	MARRY_STAT=max(value+MARRY_STAT,100)
+	marry_changed.emit()
