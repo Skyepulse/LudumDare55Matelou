@@ -10,16 +10,18 @@ region = Rect2(-1, 159, 34, 34)
 [sub_resource type="CircleShape2D" id="CircleShape2D_cc7av"]
 radius = 16.0
 
-[node name="pentagramScene" type="Node2D"]
+[node name="small_pentagram_scene" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="small_pentagram" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 17
 script = ExtResource("1_uqxqc")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="small_pentagram"]
 scale = Vector2(5.2, 5.2)
 texture = SubResource("AtlasTexture_2dlfk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="small_pentagram"]
+visible = false
 scale = Vector2(5.2, 5.2)
 shape = SubResource("CircleShape2D_cc7av")

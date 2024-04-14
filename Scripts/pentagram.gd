@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var sprite : Sprite2D = $Sprite2D
-#var tileMap = preload("res://Scenes/tileMap.tscn")
+var tileMap = preload("res://Scenes/map_main_node.tscn")
 
 func _ready() -> void:
 	#connect the body and the pentagram
@@ -14,4 +14,5 @@ func _on_body_entered(body: Node2D) -> void:
 	tween.tween_property(sprite, "position:y", -20.0, .5)
 	tween.parallel().tween_property(sprite, "rotation_degrees", -360.0, .5)
 	tween.tween_callback(queue_free)
+
 
