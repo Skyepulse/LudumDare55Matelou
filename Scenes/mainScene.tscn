@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bat355yqjpxwa"]
+[gd_scene load_steps=6 format=3 uid="uid://wofo5jwtaidg"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
-[ext_resource type="PackedScene" uid="uid://6s5dywlo2tph" path="res://Scenes/npc_talk_view.tscn" id="1_fo62l"]
+[ext_resource type="PackedScene" path="res://Scenes/npc_talk_view.tscn" id="1_fo62l"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_n6j4x"]
 [ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 [ext_resource type="PackedScene" uid="uid://2n8233urbkoq" path="res://Scenes/npc.tscn" id="4_fedcy"]
