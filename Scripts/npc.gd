@@ -2,6 +2,7 @@ extends Node2D
 
 @export var dialogs:Array[DialogicTimeline]
 @export var player:CharacterBody2D = null
+
 var dialogIndex = 0;
 
 # Called when the node enters the scene tree for the first time.
