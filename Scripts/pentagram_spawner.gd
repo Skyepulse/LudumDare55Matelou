@@ -6,6 +6,9 @@ const PENTAGRAM_RADIUS = 16
 const PENTAGRAM_SCALE = 5.2
 #to create some pentagrams in the scene
 
+var pentagramPosList = {}
+var index = 0
+
 var pentagram = preload("res://Scenes/pentagram_scene.tscn")
 var big_pentagram = preload("res://Scenes/pentagram_scene.tscn")
 @onready var tileMap : TileMap =$'../mapMainNode/TileMap'
@@ -39,38 +42,67 @@ func random_pos(position, pentagram_size):
 		randomy = rng.randf_range(-spawn_range, spawn_range)
 	
 	#make sure it doesn't spawn on the player
-	print (Vector2(position.x+randomx, position.y+randomy), position)
 	return Vector2(position.x+randomx, position.y+randomy)
 	
 func inst(pos : Vector2) -> void :
 	#choose big or small pentagram with 1/10 odds
 	var rand_pentagram_size = rng.randi_range(0,11)
-	print(rand_pentagram_size)
 	
 	if rand_pentagram_size<10:
 			#generate random position around player
 		var rand_pos = random_pos(pos,"small")
 		
-
+		if(!can_instantiate_object(rand_pos, PENTAGRAM_RADIUS, PENTAGRAM_SCALE)): 
+			print("Can't instantiate object")
+			return
 
 		#instantiate the pentagram
 		var instance = pentagram.instantiate()
 		instance.position = rand_pos
-		instance.hide()
 		add_child(instance)
+		instance.get_node("small_pentagram").set_id(index)
+		instance.get_node("small_pentagram").set_stay_time(4)
+		pentagramPosList[index] = rand_pos
+		index += 1
+		print(pentagramPosList)
 	else:
 			#generate random position around player
 		var rand_pos = random_pos(pos,"big")
 		
 			#instantiate the pentagram
 		var instance = big_pentagram.instantiate()
-		instance.hide()
 		instance.position = rand_pos
 		print("intstance big")
+		instance.hide()
 		add_child(instance)
 
 
 func _on_timer_timeout():
 	inst(player.global_position)
 
-	
+func can_instantiate_object(pos, radius, scale):
+	var space_state = get_world_2d().direct_space_state
+	var query1 = PhysicsRayQueryParameters2D.create(pos, pos + Vector2(0, 1).normalized() * radius * scale)
+	var query2 = PhysicsRayQueryParameters2D.create(pos, pos + Vector2(1, 0).normalized() * radius * scale)
+	var query3 = PhysicsRayQueryParameters2D.create(pos, pos + Vector2(0, -1).normalized() * radius * scale)
+	var query4 = PhysicsRayQueryParameters2D.create(pos, pos + Vector2(-1, 0).normalized() * radius * scale)
+
+	var result1 = space_state.intersect_ray(query1)
+	var result2 = space_state.intersect_ray(query2)
+	var result3 = space_state.intersect_ray(query3)
+	var result4 = space_state.intersect_ray(query4)
+
+	for result in [result1, result2, result3, result4]:
+		if(result == {}): continue
+		var collider = result.collider
+		if(collider):
+			print(collider.get_parent().name)
+			return false
+
+	for pentagram_pos_id in pentagramPosList:
+		if pentagramPosList[pentagram_pos_id].distance_to(pos) < (PENTAGRAM_RADIUS + 0.5) * PENTAGRAM_SCALE * 2:
+			return false
+	return true
+
+func remove_pentagram(pentagram_id):
+	pentagramPosList.erase(pentagram_id)
