@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://bedfj5np8fqqe"]
+
+[ext_resource type="Script" path="res://Scenes/dash_wing_ui.gd" id="1_2qivw"]
+[ext_resource type="Texture2D" uid="uid://kxp5msi074dk" path="res://icon.svg" id="1_5n6e3"]
+[ext_resource type="StyleBox" uid="uid://by8g5iqv4j03p" path="res://Styles/dash_ui_panel_style.tres" id="2_k7sql"]
+
+[node name="dashWingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2qivw")
+
+[node name="wings" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="wings"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="wings/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_k7sql")
+
+[node name="Sprite2D" type="Sprite2D" parent="wings/HBoxContainer/Panel"]
+texture = ExtResource("1_5n6e3")
+
+[node name="Panel2" type="Panel" parent="wings/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_k7sql")
+
+[node name="Sprite2D" type="Sprite2D" parent="wings/HBoxContainer/Panel2"]
+texture = ExtResource("1_5n6e3")
+
+[node name="Panel3" type="Panel" parent="wings/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_k7sql")
+
+[node name="Sprite2D" type="Sprite2D" parent="wings/HBoxContainer/Panel3"]
+texture = ExtResource("1_5n6e3")
