@@ -23,9 +23,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Azazael": "res://Dialogues/Azazael.dch"
+"Azazael": "res://Dialogues/Azazael/Azazael.dch"
 }
 directories/dtl_directory={
+"AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
+"AzazaelMeet2": "res://Dialogues/AzazaelMeet2.dtl",
 "MainTimeline": "res://Dialogues/MainTimeline.dtl"
 }
 glossary/default_case_sensitive=true
