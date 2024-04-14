@@ -26,7 +26,6 @@ func _ready():
 	dashRecoveryTimer.wait_time = DASH_RECOVERY_TIME
 	dashRecoveryTimer.timeout.connect(_on_dash_recovery_timer_timeout)
 	add_child(dashRecoveryTimer)
-	print(NPC_LAYER)
 
 	talkLabel = $Label
 
