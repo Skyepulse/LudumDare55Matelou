@@ -21,7 +21,7 @@ func _ready():
 	dialogLabel = $dialogRect/DialogueLabel
 	nameLabel = $nameRect/NameLabel
 	dialogLabel.text = ""
-	nameLabel.text = "Hello Hello Hello Hello Hello Hello"
+	nameLabel.text = ""
 	initialize_label_position()
 
 	dialogTimer = Timer.new()
@@ -35,7 +35,7 @@ func _ready():
 	keepDialogTimer.timeout.connect(on_hide_dialog)
 	add_child(keepDialogTimer)
 
-	talk_dialog("Hello my name is Bob. I am a very cool guy! This is a test for a dialog method to show on screen dynamically!")
+	hide()
 
 func initialize_label_position():
 	var dialogLabelMinSize = dialogLabel.get_minimum_size()
@@ -62,11 +62,13 @@ func _process(_delta):
 		dialogLabel.text += " pressed"
 
 
-func talk_dialog(text):
+func talk_dialog(text, nameText):
 	toBeSaidDialog = text
+	nameLabel.text = nameText
 	currentIndex = 0
 	saidDialog = toBeSaidDialog[currentIndex]
 	dialogLabel.text = saidDialog
+	show()
 	dialogTimer.start()
 
 func on_continue_dialog():
@@ -83,4 +85,6 @@ func on_continue_dialog():
 
 func on_hide_dialog():
 	dialogLabel.text = ""
+	nameLabel.text = ""
+	hide()
 	keepDialogTimer.stop()
