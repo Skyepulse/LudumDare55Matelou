@@ -2,7 +2,7 @@ extends Node2D
 
 #to create some pentagrams in the scene
 
-var pentagram = preload("res://pentagram_scene.tscn")
+var pentagram = preload("res://Scenes/pentagram_scene.tscn")
 
 
 func _physics_process(delta):

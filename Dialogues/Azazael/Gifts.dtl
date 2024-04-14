@@ -1,0 +1,10 @@
+Azazael: Hmm ?
+set {Gift} = randi() % 3
+if {Gift} == 0:
+	Azazael: Oh Good Lord in Heaven, I love that! Feels a bit like home. This is so great! Thanks a lot.
+elif {Gift} == 1:
+	Well thanks, that's... atypical.I'm not a fan, but thanks anyway.
+else:
+	Azazael: I really can't wait to get out.Do you... do you even like that kind of things?
+	if randi() %2 == 0:
+		Azazael: You know what? Just have it back.

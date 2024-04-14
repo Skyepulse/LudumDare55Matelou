@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var camera:Camera2D
 
+var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -9,8 +10,11 @@ var dashTimer:Timer
 var dashRecoveryTimer:Timer
 var dashSpeed = 1
 var nearNPC:Node2D = null 
+var dashWingUi
 
 var talkLabel:Label
+
+var sceneCanvasLayer:CanvasLayer
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
 
@@ -34,9 +38,12 @@ func _ready():
 	dashRecoveryTimer.wait_time = DASH_RECOVERY_TIME
 	dashRecoveryTimer.timeout.connect(_on_dash_recovery_timer_timeout)
 	add_child(dashRecoveryTimer)
-	print(NPC_LAYER)
 
 	talkLabel = $Label
+	dashWingUi = dash_wing_ui.instantiate()
+	sceneCanvasLayer = get_tree().get_root().get_node("mainScene").get_node("SceneCanvasLayer")
+	sceneCanvasLayer.add_child(dashWingUi)
+
 
 
 func _process(_delta):
@@ -66,6 +73,7 @@ func _process(_delta):
 		dashNum -= 1
 		dashTimer.start()
 		if(dashRecoveryTimer.is_stopped()): dashRecoveryTimer.start()
+		dashWingUi.update_dash(dashNum)
 			
 	move_and_slide()
 	#we update the camera position
@@ -118,9 +126,12 @@ func _on_dash_timer_timeout():
 	dashSpeed = 1
 	dashTimer.stop()
 
+
 func _on_dash_recovery_timer_timeout():
 	dashNum += 1
 	if(dashNum==DASH_NUM): dashRecoveryTimer.stop()
+	dashWingUi.update_dash(dashNum)
+
 
 func update_talk_label():
 	if(nearNPC == null):
@@ -129,3 +140,11 @@ func update_talk_label():
 	else:
 		talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
 		talkLabel.visible = true
+
+func hide_dash_wing_ui():
+	dashWingUi.hide()
+
+func show_dash_wing_ui():
+	dashWingUi.show()
+
+

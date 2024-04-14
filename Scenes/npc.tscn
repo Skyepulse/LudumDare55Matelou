@@ -7,7 +7,7 @@
 radius = 57.85
 height = 144.41
 
-[node name="NPC" type="Node2D"]
+[node name="NPC" type="Node2D" groups=["NPC"]]
 script = ExtResource("1_7ymix")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
