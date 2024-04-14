@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @export var camera:Camera2D
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
@@ -18,6 +20,14 @@ var sceneCanvasLayer:CanvasLayer
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
 
+#kiss marry kill stats
+var KISS_STAT = 20
+var MARRY_STAT = 20
+var KILL_STAT = 30
+
+signal kiss_changed
+signal marry_changed
+signal kill_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -139,4 +149,14 @@ func hide_dash_wing_ui():
 func show_dash_wing_ui():
 	dashWingUi.show()
 
+func add_kill_stat(value):
+	KILL_STAT=max(value+KILL_STAT,100)
+	kill_changed.emit()
 
+func add_kiss_stat(value):
+	KISS_STAT=max(value+KISS_STAT,100)
+	kiss_changed.emit()
+	
+func add_marry_stat(value):
+	MARRY_STAT=max(value+MARRY_STAT,100)
+	marry_changed.emit()
