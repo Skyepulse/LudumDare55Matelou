@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://b3ovcxlerm5b6"]
 
 [ext_resource type="Texture2D" uid="uid://btf4s88oc7kn8" path="res://media/stat_bar.png" id="1_qkphe"]
@@ -7,6 +8,12 @@
 
 [ext_resource type="Texture2D" path="res://media/stat_bar.png" id="1_qkphe"]
 >>>>>>> pierina
+=======
+
+[gd_scene load_steps=5 format=3 uid="uid://x274pwot07ml"]
+
+[ext_resource type="Texture2D" path="res://media/stat_bar.png" id="1_qkphe"]
+>>>>>>> fdca70349b813e9ee4a4eae10ef4e51cece7368f
 [ext_resource type="Script" path="res://Scripts/Kiss_progress.gd" id="1_w2bup"]
 [ext_resource type="Script" path="res://Scripts/Marry_progress.gd" id="2_enc51"]
 [ext_resource type="Script" path="res://Scripts/Kill_progress.gd" id="3_abonf"]
