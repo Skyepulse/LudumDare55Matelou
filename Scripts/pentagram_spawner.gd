@@ -2,6 +2,8 @@ extends Node2D
 @onready var time = $Timer
 var frequency = 2.0
 
+const PENTAGRAM_RADIUS = 16
+const PENTAGRAM_SCALE = 5.2
 #to create some pentagrams in the scene
 
 var pentagram = preload("res://Scenes/pentagram_scene.tscn")
@@ -49,9 +51,12 @@ func inst(pos : Vector2) -> void :
 			#generate random position around player
 		var rand_pos = random_pos(pos,"small")
 		
-			#instantiate the pentagram
+
+
+		#instantiate the pentagram
 		var instance = pentagram.instantiate()
 		instance.position = rand_pos
+		instance.hide()
 		add_child(instance)
 	else:
 			#generate random position around player
@@ -59,6 +64,7 @@ func inst(pos : Vector2) -> void :
 		
 			#instantiate the pentagram
 		var instance = big_pentagram.instantiate()
+		instance.hide()
 		instance.position = rand_pos
 		print("intstance big")
 		add_child(instance)
