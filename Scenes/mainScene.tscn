@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wofo5jwtaidg"]
+[gd_scene load_steps=6 format=3 uid="uid://wofo5jwtaidg"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
+[ext_resource type="PackedScene" uid="uid://b3ovcxlerm5b6" path="res://Scenes/control.tscn" id="1_t03xc"]
 [ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 [ext_resource type="PackedScene" uid="uid://2n8233urbkoq" path="res://Scenes/npc.tscn" id="4_fedcy"]
 [ext_resource type="PackedScene" uid="uid://beukmh1ep8oil" path="res://Scenes/pentagram_spawner.tscn" id="4_ri2ba"]
@@ -8,6 +9,8 @@
 [node name="mainScene" type="Node2D"]
 
 [node name="SceneCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="progress_control" parent="SceneCanvasLayer" instance=ExtResource("1_t03xc")]
 
 [node name="mapMainNode" parent="." instance=ExtResource("1_awtvf")]
 scale = Vector2(5.2, 5.2)
