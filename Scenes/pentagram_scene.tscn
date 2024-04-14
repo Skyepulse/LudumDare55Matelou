@@ -8,7 +8,7 @@ atlas = ExtResource("2_rc6ar")
 region = Rect2(-1, 80, 17, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cc7av"]
-radius = 16.0
+radius = 8.0
 
 [node name="small_pentagram_scene" type="Node2D"]
 scale = Vector2(10.4, 10.4)
@@ -24,3 +24,4 @@ texture = SubResource("AtlasTexture_2dlfk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="small_pentagram"]
 visible = false
 shape = SubResource("CircleShape2D_cc7av")
+one_way_collision_margin = 0.0
