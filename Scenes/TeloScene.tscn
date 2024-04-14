@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbq75yvgr2po6"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_wyspx"]
+[ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="2_bsdba"]
+[ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="3_gdfe7"]
+[ext_resource type="PackedScene" uid="uid://2n8233urbkoq" path="res://Scenes/npc.tscn" id="4_08vht"]
+[ext_resource type="Resource" path="res://Dialogues/Azazael/Gift1.dtl" id="5_3ed5n"]
+[ext_resource type="Resource" path="res://Dialogues/Azazael/AzazaelMeet.dtl" id="5_bp575"]
+[ext_resource type="Resource" path="res://Dialogues/Azazael/AzazaelMeet2.dtl" id="6_jq5iy"]
+[ext_resource type="Resource" path="res://Dialogues/Azazael/AzazaelMeet3.dtl" id="7_3p466"]
+
+[node name="mainScene" type="Node2D"]
+script = ExtResource("1_wyspx")
+
+[node name="mapMainNode" parent="." instance=ExtResource("2_bsdba")]
+scale = Vector2(5.2, 5.2)
+
+[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_gdfe7")]
+position = Vector2(-65, 1551)
+camera = NodePath("../MainCamera")
+
+[node name="MainCamera" type="Camera2D" parent="."]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_08vht")]
+position = Vector2(741, -382)
+dialogs = Array[Resource("res://addons/dialogic/Resources/timeline.gd")]([ExtResource("5_3ed5n")])
+player = NodePath("../CharacterBody2D")
+
+[node name="NPC2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_08vht")]
+position = Vector2(765, 235)
+dialogs = Array[Resource("res://addons/dialogic/Resources/timeline.gd")]([ExtResource("5_bp575"), ExtResource("6_jq5iy"), ExtResource("7_3p466")])
+player = NodePath("../CharacterBody2D")

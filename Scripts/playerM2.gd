@@ -10,6 +10,8 @@ var dashRecoveryTimer:Timer
 var dashSpeed = 1
 var nearNPC:Node2D = null 
 
+var blocked:bool = false;
+
 var talkLabel:Label
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
@@ -58,12 +60,13 @@ func _process(_delta):
 		dashNum -= 1
 		dashTimer.start()
 		if(dashRecoveryTimer.is_stopped()): dashRecoveryTimer.start()
-			
-	move_and_slide()
+	
+	if not blocked:
+		move_and_slide()
 	#we update the camera position
 	move_camera()
 	update_talk_label()
-	if(Input.is_action_just_pressed("interact") and nearNPC != null):
+	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null):
 		nearNPC.talk()
 
 func move_camera():
@@ -121,3 +124,10 @@ func update_talk_label():
 	else:
 		talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
 		talkLabel.visible = true
+
+func block_movements():
+	blocked = true
+	print("Blocked :(")
+func enable_movements():
+	blocked = false
+	print("Freee :D")
