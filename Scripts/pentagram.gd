@@ -1,7 +1,7 @@
 extends Area2D
 
 const PENTAGRAM_RADIUS = 16
-const PENTAGRAM_SCALE = 5.2
+const PENTAGRAM_SCALE = 10.4
 
 @onready var sprite : Sprite2D = $Sprite2D
 var tileMap = preload("res://Scenes/map_main_node.tscn")
