@@ -14,6 +14,14 @@ var talkLabel:Label
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
 
+#kiss marry kill stats
+var KISS_STAT = 20
+var MARRY_STAT = 20
+var KILL_STAT = 30
+
+signal kiss_changed
+signal marry_changed
+signal kill_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
