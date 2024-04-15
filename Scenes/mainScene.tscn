@@ -25,18 +25,22 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="pentagram_spawner" parent="." instance=ExtResource("4_ri2ba")]
 
-[node name="AzazaelNPC" parent="." instance=ExtResource("4_fedcy")]
+[node name="Azazael" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
 position = Vector2(-691, 1314)
 script = ExtResource("5_sgwwi")
 player = null
 has_waited = false
 has_red_slip = false
 
-[node name="DoloreNPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
+[node name="Dolore" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
 position = Vector2(-250, 6380)
 script = ExtResource("6_vxh0b")
 has_waited = false
 has_red_slip = false
+player = NodePath("../CharacterBody2D")
+
+[node name="Gos" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
+position = Vector2(3084, 3041)
 player = NodePath("../CharacterBody2D")
 
 [node name="Cave Of Lost Souls" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
