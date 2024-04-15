@@ -74,6 +74,7 @@ func start_cave_dialog():
 	player.isInCorvee = true
 	player.kmkUi.hide()
 	player.hide_stats_ui()
+	player.timeUi.show()
 	
 	player.current_npc = self
 	
@@ -82,6 +83,7 @@ func start_cave_dialog():
 	Dialogic.start("caveDialog")
 
 func caveEnded():
+	player.timeUi.hide()
 	Dialogic.signal_event.disconnect(caveEvent)
 	Dialogic.timeline_ended.disconnect(caveEnded)
 	Dialogic.VAR.set("Souls", player.getSoulNumber())

@@ -7,6 +7,7 @@ var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
 var corvee_ui: PackedScene = preload("res://Scenes/teleported_view_scene.tscn")
 var kmk_ui: PackedScene = preload("res://Scenes/kmk_control.tscn")
+var time_ui: PackedScene = preload("res://Scenes/time_left_view.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -20,6 +21,7 @@ var dashWingUi
 var statsUi
 var kmkUi
 var corveeUi
+var timeUi
 var isInCorvee = false
 
 var soulsNumber = 0
@@ -116,6 +118,11 @@ func _ready():
 	sceneCanvasLayer.add_child(corveeUi)
 	corveeUi.hide()
 	corveeUi.player = self
+
+	timeUi = time_ui.instantiate()
+	sceneCanvasLayer.add_child(timeUi)
+	timeUi.hide()
+	timeUi.player = self
 
 	z_index = PLAYER_Z_INDEX
 
