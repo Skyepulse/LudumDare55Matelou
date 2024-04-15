@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq6kf5o240egt"]
+
+[ext_resource type="Script" path="res://Scripts/AzazaelNPC.gd" id="1_hjd1x"]
+
+[node name="AzazaelNpc" type="Node2D"]
+script = ExtResource("1_hjd1x")
