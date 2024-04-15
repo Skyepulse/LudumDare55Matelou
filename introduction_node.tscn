@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://baijsmpgbb8eu"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://demuw4ay0rlr8"]
+>>>>>>> main
 
 [ext_resource type="Script" path="res://intro_text.gd" id="1_fgnoi"]
 
