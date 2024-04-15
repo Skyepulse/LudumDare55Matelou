@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_s1hae")
-name = ""
-azazael_liking = 0
-dolore_liking = 0
+name = "Mission Order from Belzebub"
+azazael_liking = 1
+dolore_liking = 2
 gos_liking = 0
