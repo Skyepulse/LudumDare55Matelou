@@ -81,12 +81,16 @@ func _on_body_exited(body: Node2D) -> void:
 		
 	isPlayerInside = false
 
-func die():
-	if(isPlayerInside):
-		print('TELEPORTED')
+func die(forced = false):
+	if(isPlayerInside and !forced):
+		playerCharacter.startCorvee()
+	else:
+		playerCharacter.setPentagramEsquiveCount(playerCharacter.getPentagramEsquiveCount() + 1)
 	get_tree().get_root().get_node("mainScene").get_node("pentagram_spawner").remove_pentagram(get_id())
 	get_parent().queue_free()
 
+func force_die():
+	die(true)
 
 func _process(delta):
 	if(stayTimer.is_stopped()): return
