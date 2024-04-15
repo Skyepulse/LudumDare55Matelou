@@ -25,6 +25,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Azazael": "res://Dialogues/Azazael/Azazael.dch",
 "Dolore": "res://Dialogues/Dolore/Dolore.dch",
+"Goskeiroanez": "res://Dialogues/Goskeiroanez/Goskeiroanez.dch",
 "Unknown Human": "res://Dialogues/Corvees/Unknown Human.dch",
 "caveSoul": "res://Dialogues/Cave/caveSoul.dch"
 }
