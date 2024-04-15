@@ -8,26 +8,37 @@ extends NPC
 
 func _ready():
 	dialogs = [
-		"AzazaelMeet", # 0
-		"AzazaelWait", # 1
-		"AzazaelMeet2",# 2
-		"AzazaelMeet3",# 3
-		"AzazaelZouk", # 4
-		"RedSlip",     # 5
-		"RedSlip2"     # 6
+		"AzazaelMeet",    # 0
+		"AzazaelWait",    # 1
+		"AzazaelMeet2",   # 2
+		"AzazaelMeet3",   # 3
+		"AzazaelMeet4",   # 4
+		"AzazaelZouk",    # 5
+		"AzazaelRedSlip", # 6
+		"AzazaelRedSlip2",# 7
+		"AzazaelGift1",   # 8
+		"AzazaelGifts",   # 9
+		"AzazaelFiller"   # 10
 	]
 	sprite.texture =azazel_texture
 	sprite.scale.x = 10.4
 	sprite.scale.y = 10.4
-	kiss = 70
-	marry = 10
-	kill = 10
+	kiss = 0
+	marry = 0
+	kill = 0
 
 
 func transition():
 	if dialogIndex < 0:
 		dialogIndex = 0
-	elif dialogIndex == 0:
+		return
+	
+	if randi()%3 == 0: # Actual dialog
+		pass
+	else: # filler 
+		pass
+	
+	if dialogIndex == 0:
 		dialogIndex = 1
 	elif dialogIndex == 1:
 		if has_waited:
@@ -36,6 +47,13 @@ func transition():
 			dialogIndex = 1
 	elif dialogIndex == 2:
 		dialogIndex = 3
+
+func gift():
+	if firstGift:
+		firstGift = false
+		return dialogs[8]
+	else:
+		return dialogs[9]
 
 func on_kiss():
 	if dialogIndex == 0 or dialogIndex == 1:
