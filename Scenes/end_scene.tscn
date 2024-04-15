@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg2hdduvgspjf"]
+[gd_scene load_steps=9 format=3 uid="uid://dg2hdduvgspjf"]
 
 [ext_resource type="Script" path="res://Scripts/end_scene.gd" id="1_2dfbj"]
 [ext_resource type="Texture2D" uid="uid://ddr5nu6l6mub5" path="res://media/npcs/blushing_azazael.png" id="2_21vf6"]
+[ext_resource type="Texture2D" uid="uid://bwad5elbw1a7o" path="res://media/end_screen/end_title.png" id="2_jlv2o"]
+[ext_resource type="Script" path="res://Scenes/MarginContainer_end_screen.gd" id="2_s8464"]
 [ext_resource type="Texture2D" uid="uid://mtd5fgph5su2" path="res://media/npcs/sad_azazael.png" id="3_bdhmv"]
+[ext_resource type="Texture2D" uid="uid://blq5g1248qcke" path="res://media/end_screen/kiss_final.png" id="3_lj1o4"]
+[ext_resource type="Texture2D" uid="uid://dkhfclwsa2b3e" path="res://media/end_screen/marry_final.png" id="4_hyj4a"]
+[ext_resource type="Texture2D" uid="uid://bohfoisu0bjaw" path="res://media/end_screen/kill_final.png" id="5_3hmgl"]
 
 [node name="endScene" type="Node2D"]
 script = ExtResource("1_2dfbj")
@@ -22,44 +27,188 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.164706, 0.0784314, 0.0784314, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
-custom_minimum_size = Vector2(200, 200)
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = -36.0
-offset_right = -49.0
-offset_bottom = 4.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "THE END"
-scroll_following = true
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
 
-[node name="angel" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer2" type="MarginContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_s8464")
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_jlv2o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="azVBox" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="angel" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/azVBox"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
 texture = ExtResource("2_21vf6")
+expand_mode = 1
 
-[node name="scot" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="kissHBox" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/azVBox"]
+layout_mode = 2
+
+[node name="kiss_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/azVBox/kissHBox"]
+layout_mode = 2
+texture = ExtResource("3_lj1o4")
+expand_mode = 3
+
+[node name="Kiss" type="Label" parent="Control/VBoxContainer/HBoxContainer/azVBox/kissHBox"]
+layout_mode = 2
+text = "Kiss total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/azVBox/kissHBox"]
+layout_mode = 2
+
+[node name="marryHBox" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/azVBox"]
+layout_mode = 2
+
+[node name="marry_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/azVBox/marryHBox"]
+layout_mode = 2
+texture = ExtResource("4_hyj4a")
+expand_mode = 3
+
+[node name="Marry" type="Label" parent="Control/VBoxContainer/HBoxContainer/azVBox/marryHBox"]
+layout_mode = 2
+text = "Marry total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/azVBox/marryHBox"]
+layout_mode = 2
+
+[node name="killHBox" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/azVBox"]
+layout_mode = 2
+
+[node name="kill_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/azVBox/killHBox"]
+layout_mode = 2
+texture = ExtResource("5_3hmgl")
+expand_mode = 3
+
+[node name="Kill" type="Label" parent="Control/VBoxContainer/HBoxContainer/azVBox/killHBox"]
+layout_mode = 2
+text = "Kill total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/azVBox/killHBox"]
+layout_mode = 2
+
+[node name="gosVBox" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="scot" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/gosVBox"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
 texture = ExtResource("3_bdhmv")
+expand_mode = 1
 
-[node name="dolore" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="kissHBox" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/gosVBox"]
+layout_mode = 2
+
+[node name="kiss_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/gosVBox/kissHBox"]
+layout_mode = 2
+texture = ExtResource("3_lj1o4")
+expand_mode = 3
+
+[node name="Kiss" type="Label" parent="Control/VBoxContainer/HBoxContainer/gosVBox/kissHBox"]
+layout_mode = 2
+text = "Kiss total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/gosVBox/kissHBox"]
+layout_mode = 2
+
+[node name="marryHBox2" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/gosVBox"]
+layout_mode = 2
+
+[node name="marry_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/gosVBox/marryHBox2"]
+layout_mode = 2
+texture = ExtResource("4_hyj4a")
+expand_mode = 3
+
+[node name="Marry" type="Label" parent="Control/VBoxContainer/HBoxContainer/gosVBox/marryHBox2"]
+layout_mode = 2
+text = "Marry total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/gosVBox/marryHBox2"]
+layout_mode = 2
+
+[node name="killHBox3" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/gosVBox"]
+layout_mode = 2
+
+[node name="kill_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/gosVBox/killHBox3"]
+layout_mode = 2
+texture = ExtResource("5_3hmgl")
+expand_mode = 3
+
+[node name="Kill" type="Label" parent="Control/VBoxContainer/HBoxContainer/gosVBox/killHBox3"]
+layout_mode = 2
+text = "Marry total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/gosVBox/killHBox3"]
+layout_mode = 2
+
+[node name="doloreVBox" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="dolore" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/doloreVBox"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
 texture = ExtResource("2_21vf6")
+expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="kissHBox" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/doloreVBox"]
+layout_mode = 2
+
+[node name="kiss_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/kissHBox"]
+layout_mode = 2
+texture = ExtResource("3_lj1o4")
+expand_mode = 3
+
+[node name="Kiss" type="Label" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/kissHBox"]
+layout_mode = 2
+text = "Kiss total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/kissHBox"]
+layout_mode = 2
+
+[node name="marryHBox2" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/doloreVBox"]
+layout_mode = 2
+
+[node name="marry_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/marryHBox2"]
+layout_mode = 2
+texture = ExtResource("4_hyj4a")
+expand_mode = 3
+
+[node name="Marry" type="Label" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/marryHBox2"]
+layout_mode = 2
+text = "Marry total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/marryHBox2"]
+layout_mode = 2
+
+[node name="killHBox3" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer/doloreVBox"]
+layout_mode = 2
+
+[node name="kill_icon" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/killHBox3"]
+layout_mode = 2
+texture = ExtResource("5_3hmgl")
+expand_mode = 3
+
+[node name="Kill" type="Label" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/killHBox3"]
+layout_mode = 2
+text = "Kill total :"
+
+[node name="stat" type="Label" parent="Control/VBoxContainer/HBoxContainer/doloreVBox/killHBox3"]
+layout_mode = 2
