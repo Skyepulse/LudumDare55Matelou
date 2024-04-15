@@ -1,0 +1,12 @@
+join Goskeiroanez 1
+set {randChoice} = randi() % 5
+if {randChoice} == 0:
+	Goskeiroanez: Back in ma old trade, I used tae help sinners find redemption, but it's much more enjoyable tae deal out punishment tae those who dinnae repent.
+elif {randChoice} == 1:
+	Goskeiroanez: I miss the good old earthy meals I used tae ha'e efter a lang day o' work. Things dinnae taste as good down here.
+elif {randChoice} == 2:
+	Goskeiroanez: I pure love my job, but sometimes I get a wee bit scunnerr'd wit' all the paperwork.
+elif {randChoice} == 3:
+	Goskeiroanez: Just ha'e come back from Earth. Things ha'e changed! Back in ma days, women could nae wear troosers.
+elif {randChoice} == 4:
+	Goskeiroanez: Is it no' strange that some folk end up here just 'cause o' the colour o' their hair?

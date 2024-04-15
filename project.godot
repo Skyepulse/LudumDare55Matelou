@@ -55,6 +55,11 @@ directories/dtl_directory={
 "DoloreRefuseKiss": "res://Dialogues/Dolore/DoloreRefuseKiss.dtl",
 "DoloreRefuseMarry": "res://Dialogues/Dolore/DoloreRefuseMarry.dtl",
 "DoloreUnion": "res://Dialogues/Dolore/DoloreUnion.dtl",
+"GosFiller": "res://Dialogues/Goskeiroanez/GosFiller.dtl",
+"GosMeet": "res://Dialogues/Goskeiroanez/GosMeet.dtl",
+"GosMeet2": "res://Dialogues/Goskeiroanez/GosMeet2.dtl",
+"GosMeet3": "res://Dialogues/Goskeiroanez/GosMeet3.dtl",
+"GosMeet4": "res://Dialogues/Goskeiroanez/GosMeet4.dtl",
 "caveDialog": "res://Dialogues/Cave/caveDialog.dtl",
 "corvee0": "res://Dialogues/Corvees/corvee0.dtl",
 "corvee1": "res://Dialogues/Corvees/corvee1.dtl",
@@ -67,7 +72,7 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogues/Dialogic.tres", "res://Dialogues/full_screen_style.tres"]
 layout/default_style="res://Dialogues/Dialogic.tres"
 variables={
-"Gift": "",
+"Gift": 0,
 "Souls": 0,
 "has_union_card": false,
 "randChoice": 0.0

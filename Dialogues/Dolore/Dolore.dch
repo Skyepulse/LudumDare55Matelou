@@ -33,6 +33,15 @@
 "scale": 1,
 "scene": ""
 },
+"Marry": {
+"export_overrides": {
+"image": "\"res://media/npcs/dolore_marry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "Pissed": {
 "export_overrides": {
 "image": "\"res://media/npcs/pissed_off_dolore.png\""
