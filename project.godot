@@ -33,8 +33,7 @@ directories/dtl_directory={
 "Gift1": "res://Dialogues/Azazael/Gift1.dtl",
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
 "RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
-"RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl",
-"intro_timeline": "res://Scripts/intro_timeline.dtl"
+"RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogues/Style.tres"]

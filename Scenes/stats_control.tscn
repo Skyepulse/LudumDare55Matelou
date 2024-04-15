@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3a5phihyswg"]
+[gd_scene load_steps=5 format=3 uid="uid://d3a5phihyswg"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Texture2D" path="res://media/stat_bars/stat_bar.png" id="1_a6rla"]
+=======
+[ext_resource type="Texture2D" uid="uid://btf4s88oc7kn8" path="res://media/stat_bar.png" id="1_a6rla"]
+>>>>>>> parent of 5b0773b (creating timeline, text written for intro)
 [ext_resource type="Script" path="res://Scripts/Kiss_progress.gd" id="2_a6aww"]
-[ext_resource type="Texture2D" path="res://media/stat_bars/kiss_bar.png" id="2_rj2m3"]
 [ext_resource type="Script" path="res://Scripts/Marry_progress.gd" id="3_wu2wa"]
-[ext_resource type="Texture2D" path="res://media/stat_bars/marry_bar.png" id="4_shhco"]
 [ext_resource type="Script" path="res://Scripts/Kill_progress.gd" id="4_v1an1"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" path="res://media/stat_bars/kill_bar.png" id="6_q52db"]
 =======
 [ext_resource type="Texture2D" uid="uid://btf4s88oc7kn8" path="res://media/stat_bars/stat_bar.png" id="1_a6rla"]
@@ -17,6 +20,8 @@
 [ext_resource type="Script" path="res://Scripts/Kill_progress.gd" id="4_v1an1"]
 [ext_resource type="Texture2D" uid="uid://vwsl6mt0hcov" path="res://media/stat_bars/kill_bar.png" id="6_q52db"]
 >>>>>>> main
+=======
+>>>>>>> parent of 5b0773b (creating timeline, text written for intro)
 
 [node name="stats_Control" type="Control"]
 layout_mode = 3
@@ -38,21 +43,15 @@ grow_horizontal = 0
 [node name="kiss_progress" type="TextureProgressBar" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-value = 100.0
 texture_over = ExtResource("1_a6rla")
-texture_progress = ExtResource("2_rj2m3")
 script = ExtResource("2_a6aww")
 
 [node name="marry_progress" type="TextureProgressBar" parent="VBoxContainer"]
 layout_mode = 2
-value = 50.0
 texture_over = ExtResource("1_a6rla")
-texture_progress = ExtResource("4_shhco")
 script = ExtResource("3_wu2wa")
 
 [node name="kill_progress" type="TextureProgressBar" parent="VBoxContainer"]
 layout_mode = 2
-value = 20.0
 texture_over = ExtResource("1_a6rla")
-texture_progress = ExtResource("6_q52db")
 script = ExtResource("4_v1an1")
