@@ -8,6 +8,7 @@ var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
+const PLAYER_Z_INDEX = 2
 var dashNum = DASH_NUM
 var dashTimer:Timer
 var dashRecoveryTimer:Timer
@@ -51,6 +52,8 @@ func _ready():
 	statsUi = stats_ui.instantiate()
 	sceneCanvasLayer.add_child(statsUi)
 
+	z_index = PLAYER_Z_INDEX
+
 
 
 func _process(_delta):
@@ -74,7 +77,7 @@ func _process(_delta):
 
 	velocity = velocity.normalized() * SPEED * dashSpeed
 
-	if Input.is_action_pressed("dash") and dashTimer.is_stopped() and dashNum > 0:
+	if Input.is_action_just_pressed("dash") and dashTimer.is_stopped() and dashNum > 0:
 		if(!has_pressed): return
 		dashSpeed = 2			
 		dashNum -= 1
