@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://btf4s88oc7kn8" path="res://media/stat_bars/stat_bar.png" id="1_a6rla"]
 [ext_resource type="Script" path="res://Scripts/Kiss_progress.gd" id="2_a6aww"]
-[ext_resource type="Texture2D" uid="uid://4fp62jtm2wwt" path="res://media/stat_bars/kiss_bar.png" id="2_rj2m3"]
+[ext_resource type="Texture2D" uid="uid://bej2mmowbw12r" path="res://media/stat_bars/kiss_bar.png" id="2_rj2m3"]
 [ext_resource type="Script" path="res://Scripts/Marry_progress.gd" id="3_wu2wa"]
-[ext_resource type="Texture2D" uid="uid://da3pmk005d1e" path="res://media/stat_bars/marry_bar.png" id="4_shhco"]
+[ext_resource type="Texture2D" uid="uid://cxh30602nee0f" path="res://media/stat_bars/marry_bar.png" id="4_shhco"]
 [ext_resource type="Script" path="res://Scripts/Kill_progress.gd" id="4_v1an1"]
-[ext_resource type="Texture2D" uid="uid://vwsl6mt0hcov" path="res://media/stat_bars/kill_bar.png" id="6_q52db"]
+[ext_resource type="Texture2D" uid="uid://gua1mdiy87a5" path="res://media/stat_bars/kill_bar.png" id="6_q52db"]
 
 [node name="stats_Control" type="Control"]
 layout_mode = 3

@@ -145,6 +145,9 @@ func _on_dash_recovery_timer_timeout():
 	if(dashNum==DASH_NUM): dashRecoveryTimer.stop()
 	dashWingUi.update_dash(dashNum)
 
+func get_area2D_node_path():
+	var nodePath = get_node("Area2D").get_path()
+	return nodePath
 
 func update_talk_label():
 	if(nearNPC == null):
