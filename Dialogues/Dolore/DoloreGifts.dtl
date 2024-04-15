@@ -1,0 +1,15 @@
+join Dolore 1
+Dolore: Hmm?
+set {Gift} = randi() % 3
+if {Gift} == 0:
+	if randi()%2 == 0:
+		Dolore: Yeah mate, that's the good stuff! You're a real one.
+	else:
+		Dolore: Hella great, thanks! You rock!
+elif {Gift} == 1:
+	Dolore: Not my kind of stuff, but I'll keep it.
+else:
+	if random()%2 == 0:
+		Dolore: Wow, that's the worst thing I've got to see.
+	else:
+		Dolore: I thought you knew me better than that, mate.
