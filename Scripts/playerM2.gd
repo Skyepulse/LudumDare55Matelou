@@ -164,11 +164,13 @@ func update_talk_label():
 func block_movements():
 	blocked = true
 	kmkUi.show()
-	statsUi.show()
+	hide_dash_wing_ui()
+	show_stats_ui()
 func enable_movements():
 	blocked = false
 	kmkUi.hide()
-	statsUi.hide()
+	hide_stats_ui()
+	show_dash_wing_ui()
 
 func hide_dash_wing_ui():
 	dashWingUi.hide()

@@ -22,7 +22,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Azazael": "res://Dialogues/Azazael/Azazael.dch"
+"Azazael": "res://Dialogues/Azazael/Azazael.dch",
+"Dolore": "res://Dialogues/Dolore/Dolore.dch"
 }
 directories/dtl_directory={
 "AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
@@ -30,14 +31,15 @@ directories/dtl_directory={
 "AzazaelMeet3": "res://Dialogues/Azazael/AzazaelMeet3.dtl",
 "AzazaelWait": "res://Dialogues/Azazael/AzazaelWait.dtl",
 "AzazaelZouk": "res://Dialogues/Azazael/AzazaelZouk.dtl",
+"DoloreMeet": "res://Dialogues/Dolore/DoloreMeet.dtl",
 "Gift1": "res://Dialogues/Azazael/Gift1.dtl",
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
 "RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
 "RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://Dialogues/Style.tres"]
-layout/default_style="res://Dialogues/Style.tres"
+layout/style_list=["res://Dialogues/Dialogic.tres"]
+layout/default_style="res://Dialogues/Dialogic.tres"
 variables={
 "Gift": ""
 }
@@ -57,6 +59,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+portraits/default_portrait=""
 
 [dotnet]
 
