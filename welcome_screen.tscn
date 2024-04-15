@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://bw88xu8xrxcri"]
+[gd_scene load_steps=3 format=3 uid="uid://bw88xu8xrxcri"]
+
+[ext_resource type="Texture2D" uid="uid://b617e8q3043ha" path="res://media/npcs/pissed_off_dolore.png" id="1_jbos3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfoti"]
+atlas = ExtResource("1_jbos3")
+region = Rect2(3.74622, 15.3166, 796.254, 784.683)
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,9 +45,16 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Logo" type="Sprite2D" parent="Control/ColorRect/VBoxContainer"]
+[node name="Logo" type="Sprite2D" parent="Control"]
+position = Vector2(794.625, 329.375)
+scale = Vector2(0.896043, 0.819834)
+texture = SubResource("AtlasTexture_vfoti")
 
-[node name="Play_button" type="Button" parent="Control/ColorRect/VBoxContainer"]
+[node name="Play_button" type="Button" parent="Control"]
 layout_mode = 2
+offset_left = 554.5
+offset_top = 302.5
+offset_right = 599.5
+offset_bottom = 333.5
 size_flags_vertical = 4
 text = "Play!"
