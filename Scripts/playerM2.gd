@@ -4,6 +4,7 @@ class_name Player
 @export var camera:Camera2D
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
+var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -13,6 +14,9 @@ var dashRecoveryTimer:Timer
 var dashSpeed = 1
 var nearNPC:Node2D = null 
 var dashWingUi
+var statsUi
+
+var blocked:bool = false;
 
 var talkLabel:Label
 
@@ -46,6 +50,9 @@ func _ready():
 	sceneCanvasLayer = get_tree().get_root().get_node("mainScene").get_node("SceneCanvasLayer")
 	sceneCanvasLayer.add_child(dashWingUi)
 
+	statsUi = stats_ui.instantiate()
+	sceneCanvasLayer.add_child(statsUi)
+
 
 
 func _process(_delta):
@@ -76,12 +83,13 @@ func _process(_delta):
 		dashTimer.start()
 		if(dashRecoveryTimer.is_stopped()): dashRecoveryTimer.start()
 		dashWingUi.update_dash(dashNum)
-			
-	move_and_slide()
+	
+	if not blocked:
+		move_and_slide()
 	#we update the camera position
 	move_camera()
 	update_talk_label()
-	if(Input.is_action_just_pressed("interact") and nearNPC != null):
+	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null):
 		nearNPC.talk()
 
 func move_camera():
@@ -143,11 +151,24 @@ func update_talk_label():
 		talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
 		talkLabel.visible = true
 
+func block_movements():
+	blocked = true
+	print("Blocked :(")
+func enable_movements():
+	blocked = false
+	print("Freee :D")
+
 func hide_dash_wing_ui():
 	dashWingUi.hide()
 
 func show_dash_wing_ui():
 	dashWingUi.show()
+
+func hide_stats_ui():
+	statsUi.hide()
+
+func show_stats_ui():
+	statsUi.show()
 
 func add_kill_stat(value):
 	KILL_STAT=max(value+KILL_STAT,100)
