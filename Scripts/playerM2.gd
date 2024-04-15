@@ -3,6 +3,12 @@ class_name Player
 
 @export var camera:Camera2D
 
+@onready var walkIdleTexture:Texture = preload("res://media/main_char/main_char_front.png")
+@onready var walkIdleTextureBack:Texture = preload("res://media/main_char/main_char_back.png")
+@onready var walkIdleTextureLeft:Texture = preload("res://media/main_char/mainchar_walking_front_1.png")
+@onready var walkIdleTextureRight:Texture = preload("res://media/main_char/mainchar_walking_front_2.png")
+@onready var sprite = $Sprite2D
+
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
 var corvee_ui: PackedScene = preload("res://Scenes/teleported_view_scene.tscn")
@@ -23,6 +29,8 @@ var kmkUi
 var corveeUi
 var timeUi
 var isInCorvee = false
+
+var changeTextureTimer:Timer
 
 var soulsNumber = 0
 
@@ -131,6 +139,11 @@ func _ready():
 	canTalkAfterTimer.timeout.connect(_on_can_talk_after_timer_timeout)
 	add_child(canTalkAfterTimer)
 
+	changeTextureTimer = Timer.new()
+	changeTextureTimer.wait_time = 0.3
+	changeTextureTimer.timeout.connect(_on_change_texture_timer_timeout)
+	add_child(changeTextureTimer)
+	changeTextureTimer.start()
 
 
 func _process(_delta):
@@ -138,18 +151,30 @@ func _process(_delta):
 
 	var has_pressed = false
 	# Check for input and modify velocity accordingly
-	if Input.is_action_pressed("move_up"):
-		if(!has_pressed): has_pressed = true
-		velocity.y -= 1
+	
 	if Input.is_action_pressed("move_down"):
 		if(!has_pressed): has_pressed = true
+		changeTextureTimer.paused = false
 		velocity.y += 1
 	if Input.is_action_pressed("move_left"):
 		if(!has_pressed): has_pressed = true
+		changeTextureTimer.paused = false
 		velocity.x -= 1
 	if Input.is_action_pressed("move_right"):
 		if(!has_pressed): has_pressed = true
+		changeTextureTimer.paused = false
 		velocity.x += 1
+	if Input.is_action_pressed("move_up"):
+		if(!has_pressed): has_pressed = true
+		sprite.texture = walkIdleTextureBack
+		changeTextureTimer.paused = true
+		velocity.y -= 1
+
+	if(!has_pressed):
+		sprite.texture = walkIdleTexture
+		changeTextureTimer.paused = true
+		
+	
 
 	velocity = velocity.normalized() * SPEED * dashSpeed
 
@@ -316,3 +341,10 @@ func _on_can_talk_after_timer_timeout():
 
 func destroy_all_pentagrams():
 	pentagram_spawner.destroy_all_pentagrams()
+
+func _on_change_texture_timer_timeout():
+	if(sprite.texture == walkIdleTextureLeft):
+		sprite.texture = walkIdleTextureRight
+	else:
+		sprite.texture = walkIdleTextureLeft
+	changeTextureTimer.start()

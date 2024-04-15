@@ -71,7 +71,6 @@ func _on_body_entered(body: Node2D) -> void:
 	var player := body as CharacterBody2D
 	if not player :		
 		return
-	print('Player entered')
 	isPlayerInside = true
 
 func _on_body_exited(body: Node2D) -> void:
