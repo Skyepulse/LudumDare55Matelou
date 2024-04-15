@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://5pt6em1vbuu2"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=17 format=3 uid="uid://5pt6em1vbuu2"]
 
-[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="1_7cqk8"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_3xkj6"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_clfpd"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_0chx0"]
@@ -10,13 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="7_yi8qb"]
 [ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="8_utv86"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="9_44qvm"]
-
-[sub_resource type="Resource" id="Resource_b5l8o"]
-script = ExtResource("2_3xkj6")
-scene = ExtResource("1_7cqk8")
-overrides = {
-"disabled": "true"
-}
 
 [sub_resource type="Resource" id="Resource_di87d"]
 script = ExtResource("2_3xkj6")
@@ -57,5 +49,5 @@ overrides = {}
 script = ExtResource("9_44qvm")
 name = "Dialogic"
 base_overrides = {}
-layers = Array[ExtResource("2_3xkj6")]([SubResource("Resource_b5l8o"), SubResource("Resource_di87d"), SubResource("Resource_kk60n"), SubResource("Resource_4a6bi"), SubResource("Resource_io2p3"), SubResource("Resource_qfaid"), SubResource("Resource_xwr23"), SubResource("Resource_gcybc")])
+layers = Array[ExtResource("2_3xkj6")]([SubResource("Resource_di87d"), SubResource("Resource_kk60n"), SubResource("Resource_4a6bi"), SubResource("Resource_io2p3"), SubResource("Resource_qfaid"), SubResource("Resource_xwr23"), SubResource("Resource_gcybc")])
 metadata/_latest_layer = 0
