@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://dua11vky6xm0t"]
+
+[ext_resource type="Script" path="res://Scenes/kmk_control.gd" id="1_oyitu"]
+
+[node name="KMK_Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyitu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -50.5
+offset_bottom = 50.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Kiss" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Kiss"
+
+[node name="Marry" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Marry"
+
+[node name="Kill" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Kill"
+
+[connection signal="pressed" from="VBoxContainer/Kiss" to="." method="_on_kiss_pressed"]
+[connection signal="pressed" from="VBoxContainer/Marry" to="." method="_on_marry_pressed"]
+[connection signal="pressed" from="VBoxContainer/Kill" to="." method="_on_kill_pressed"]

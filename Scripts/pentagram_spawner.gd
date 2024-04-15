@@ -2,11 +2,14 @@ extends Node2D
 @onready var time = $Timer
 var frequency = 2.0
 
-const PENTAGRAM_RADIUS = 16
-const PENTAGRAM_SCALE = 5.2
+const PENTAGRAM_RADIUS = 8
+const PENTAGRAM_SCALE = 10.4
+
+const BIG_PENTAGRAM_RADIUS = 16
 #to create some pentagrams in the scene
 
 var pentagramPosList = {}
+var instances = {}
 var index = 0
 
 var pentagram = preload("res://Scenes/small_pentagram_scene.tscn")
@@ -45,23 +48,43 @@ func random_pos(position, pentagram_size):
 	return Vector2(position.x+randomx, position.y+randomy)
 	
 func inst(pos : Vector2) -> void :	
-	#generate random position around player
-	var rand_pos = random_pos(pos,"small")
-	
-	if(!can_instantiate_object(rand_pos, PENTAGRAM_RADIUS + 1, PENTAGRAM_SCALE)): 
-		print("Can't instantiate object")
-		return
+	var rand_num = rng.randf_range(0, 1)
+	if(rand_num < 0.1):
+		var rand_pos = random_pos(pos,"big")
+		if(!can_instantiate_object(rand_pos, BIG_PENTAGRAM_RADIUS + 1, PENTAGRAM_SCALE)): 
+			print("Can't instantiate object")
+			return
+		
+		#instantiate the pentagram
+		var instance = big_pentagram.instantiate()
+		instance.position = rand_pos
+		add_child(instance)
+		instances[index] = instance
+		instance.get_node("big_pentagram").set_id(index)
+		instance.get_node("big_pentagram").set_stay_time(5)
+		instance.get_node("big_pentagram").set_is_big(true)
+		instance.get_node("big_pentagram").set_radius(BIG_PENTAGRAM_RADIUS)
+		instance.get_node("big_pentagram").set_sprite_texture('big')
+		pentagramPosList[index] = rand_pos
+		index += 1
 
-	#instantiate the pentagram
-	var instance = pentagram.instantiate()
-	instance.position = rand_pos
-	add_child(instance)
-	instance.get_node("small_pentagram").set_id(index)
-	instance.get_node("small_pentagram").set_stay_time(5)
-	pentagramPosList[index] = rand_pos
-	index += 1
-	print(pentagramPosList)
+	else:
+		var rand_pos = random_pos(pos,"small")
 
+		if(!can_instantiate_object(rand_pos, PENTAGRAM_RADIUS + 1, PENTAGRAM_SCALE)): 
+			print("Can't instantiate object")
+			return
+
+		#instantiate the pentagram
+		var instance = pentagram.instantiate()
+		instance.position = rand_pos
+		add_child(instance)
+		instances[index] = instance
+		instance.get_node("small_pentagram").set_id(index)
+		instance.get_node("small_pentagram").set_stay_time(5)
+		instance.get_node("small_pentagram").set_sprite_texture('small')
+		pentagramPosList[index] = rand_pos
+		index += 1
 
 func _on_timer_timeout():
 	inst(player.global_position)
@@ -101,3 +124,10 @@ func can_instantiate_object(pos, radius, object_scale):
 
 func remove_pentagram(pentagram_id):
 	pentagramPosList.erase(pentagram_id)
+	instances.erase(pentagram_id)
+
+func pause_spawner():
+	time.paused = true
+
+func unpause_spawner():
+	time.paused = false

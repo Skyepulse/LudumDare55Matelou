@@ -5,6 +5,7 @@ class_name Player
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
+var kmk_ui: PackedScene = preload("res://Scenes/kmk_control.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -16,6 +17,10 @@ var dashSpeed = 1
 var nearNPC:Node2D = null 
 var dashWingUi
 var statsUi
+var kmkUi
+@onready var pentagram_spawner = $'../pentagram_spawner'
+
+var pentagramsPaused = false
 
 var blocked:bool = false;
 
@@ -24,6 +29,8 @@ var talkLabel:Label
 var sceneCanvasLayer:CanvasLayer
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
+
+var current_npc: NPC = null
 
 #kiss marry kill stats
 var KISS_STAT = 20
@@ -53,6 +60,12 @@ func _ready():
 
 	statsUi = stats_ui.instantiate()
 	sceneCanvasLayer.add_child(statsUi)
+	statsUi.hide()
+	
+	kmkUi = kmk_ui.instantiate()
+	sceneCanvasLayer.add_child(kmkUi)
+	kmkUi.hide()
+	kmkUi.player = self
 
 	z_index = PLAYER_Z_INDEX
 
@@ -75,7 +88,6 @@ func _process(_delta):
 	if Input.is_action_pressed("move_right"):
 		if(!has_pressed): has_pressed = true
 		velocity.x += 1
-	
 
 	velocity = velocity.normalized() * SPEED * dashSpeed
 
@@ -145,6 +157,9 @@ func _on_dash_recovery_timer_timeout():
 	if(dashNum==DASH_NUM): dashRecoveryTimer.stop()
 	dashWingUi.update_dash(dashNum)
 
+func get_area2D_node_path():
+	var nodePath = get_node("Area2D").get_path()
+	return nodePath
 
 func update_talk_label():
 	if(nearNPC == null):
@@ -156,10 +171,14 @@ func update_talk_label():
 
 func block_movements():
 	blocked = true
-	print("Blocked :(")
+	kmkUi.show()
+	hide_dash_wing_ui()
+	show_stats_ui()
 func enable_movements():
 	blocked = false
-	print("Freee :D")
+	kmkUi.hide()
+	hide_stats_ui()
+	show_dash_wing_ui()
 
 func hide_dash_wing_ui():
 	dashWingUi.hide()
@@ -184,3 +203,24 @@ func set_kiss_stat(value):
 func set_marry_stat(value):
 	MARRY_STAT=min(value,100)
 	marry_changed.emit()
+
+func pause_pentagrams():
+	pentagramsPaused = true
+	pentagram_spawner.pause_spawner()
+	var pentagrams = pentagram_spawner.instances
+	for pentagram_id in pentagrams:
+		var pentagram = pentagrams[pentagram_id]
+		var controller = pentagram.find_children('*_pentagram')[0]
+
+		controller.pause_pentagram()
+
+func unpause_pentagrams():
+	pentagramsPaused = false
+	pentagram_spawner.unpause_spawner()
+	var pentagrams = pentagram_spawner.instances
+	for pentagram_id in pentagrams:
+		var pentagram = pentagrams[pentagram_id]
+		var controller = pentagram.find_children('*_pentagram')[0]
+
+		controller.resume_pentagram()
+
