@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://da3pmk005d1e"
+=======
+uid="uid://uo8xl4nkidvx"
+>>>>>>> c460167d8c88c071f1c3daf0e772affbbca2a44c
 path="res://.godot/imported/marry_bar.png-e95e4e5fcc34bd1abf8bc68755c2e420.ctex"
 metadata={
 "vram_texture": false

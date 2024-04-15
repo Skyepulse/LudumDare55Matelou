@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wofo5jwtaidg"]
+[gd_scene load_steps=7 format=3 uid="uid://wofo5jwtaidg"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
 [ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 [ext_resource type="PackedScene" uid="uid://2n8233urbkoq" path="res://Scenes/npc.tscn" id="4_fedcy"]
 [ext_resource type="PackedScene" uid="uid://beukmh1ep8oil" path="res://Scenes/pentagram_spawner.tscn" id="4_ri2ba"]
 [ext_resource type="Script" path="res://Scripts/AzazaelNPC.gd" id="5_sgwwi"]
+[ext_resource type="Script" path="res://Scripts/DoloreNPC.gd" id="6_vxh0b"]
 
 [node name="mainScene" type="Node2D"]
 
@@ -21,9 +22,16 @@ camera = NodePath("../MainCamera")
 
 [node name="pentagram_spawner" parent="." instance=ExtResource("4_ri2ba")]
 
-[node name="NPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
+[node name="AzazaelNPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
 position = Vector2(490, 1790)
 script = ExtResource("5_sgwwi")
+has_waited = false
+has_red_slip = false
+player = NodePath("../CharacterBody2D")
+
+[node name="DoloreNPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
+position = Vector2(544, 2168)
+script = ExtResource("6_vxh0b")
 has_waited = false
 has_red_slip = false
 player = NodePath("../CharacterBody2D")

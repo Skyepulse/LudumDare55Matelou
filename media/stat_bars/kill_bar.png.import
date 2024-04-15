@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://vwsl6mt0hcov"
+=======
+uid="uid://dmk7i2sldvux0"
+>>>>>>> c460167d8c88c071f1c3daf0e772affbbca2a44c
 path="res://.godot/imported/kill_bar.png-e7f1c2e599c6ad143cde8910657048c1.ctex"
 metadata={
 "vram_texture": false
