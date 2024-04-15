@@ -5,6 +5,7 @@ class_name Player
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
+var kmk_ui: PackedScene = preload("res://Scenes/kmk_control.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -16,6 +17,7 @@ var dashSpeed = 1
 var nearNPC:Node2D = null 
 var dashWingUi
 var statsUi
+var kmkUi
 
 var blocked:bool = false;
 
@@ -24,6 +26,8 @@ var talkLabel:Label
 var sceneCanvasLayer:CanvasLayer
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
+
+var current_npc: NPC = null
 
 #kiss marry kill stats
 var KISS_STAT = 20
@@ -53,6 +57,12 @@ func _ready():
 
 	statsUi = stats_ui.instantiate()
 	sceneCanvasLayer.add_child(statsUi)
+	statsUi.hide()
+	
+	kmkUi = kmk_ui.instantiate()
+	sceneCanvasLayer.add_child(kmkUi)
+	kmkUi.hide()
+	kmkUi.player = self
 
 	z_index = PLAYER_Z_INDEX
 
@@ -156,10 +166,14 @@ func update_talk_label():
 
 func block_movements():
 	blocked = true
-	print("Blocked :(")
+	kmkUi.show()
+	hide_dash_wing_ui()
+	show_stats_ui()
 func enable_movements():
 	blocked = false
-	print("Freee :D")
+	kmkUi.hide()
+	hide_stats_ui()
+	show_dash_wing_ui()
 
 func hide_dash_wing_ui():
 	dashWingUi.hide()

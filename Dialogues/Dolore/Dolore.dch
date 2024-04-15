@@ -10,14 +10,14 @@
 },
 "default_portrait": "Main",
 "description": "",
-"display_name": "Azazael",
+"display_name": "Dolore",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
 "Main": {
 "export_overrides": {
-"image": "\"res://media/npcs/angel.png\""
+"image": "\"res://media/npcs/bdsm_demon.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
