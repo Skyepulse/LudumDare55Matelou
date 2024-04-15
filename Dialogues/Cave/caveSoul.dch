@@ -10,14 +10,14 @@
 },
 "default_portrait": "default",
 "description": "",
-"display_name": "caveSoul",
+"display_name": "Amnesia",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://media/npcs/random_human.png\""
+"image": "\"res://media/npcs/amnesia.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
