@@ -13,9 +13,9 @@ func _ready():
 		"RedSlip",     # 5
 		"RedSlip2"     # 6
 	]
-	kiss = 70
-	marry = 10
-	kill = 10
+	kiss = 20
+	marry = 30
+	kill = 50
 
 
 func transition():
