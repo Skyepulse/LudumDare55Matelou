@@ -29,6 +29,8 @@ func getSoulNumber():
 
 func addSouls(numSouls:int):
 	soulsNumber += numSouls
+	dashWingUi.update_souls(soulsNumber)
+	print("Souls: " + str(soulsNumber))
 
 var pentagramEsquiveCount = 0
 
