@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://wofo5jwtaidg"]
+[gd_scene load_steps=8 format=3 uid="uid://wofo5jwtaidg"]
 
 [ext_resource type="PackedScene" uid="uid://db7r2gogo5b78" path="res://Scenes/map_main_node.tscn" id="1_awtvf"]
+[ext_resource type="Script" path="res://Scripts/mainScene.gd" id="1_cpo1d"]
 [ext_resource type="PackedScene" uid="uid://casvlyfugxq2v" path="res://Scenes/player.tscn" id="2_0ef22"]
 [ext_resource type="PackedScene" uid="uid://2n8233urbkoq" path="res://Scenes/npc.tscn" id="4_fedcy"]
 [ext_resource type="PackedScene" uid="uid://beukmh1ep8oil" path="res://Scenes/pentagram_spawner.tscn" id="4_ri2ba"]
@@ -8,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/DoloreNPC.gd" id="6_vxh0b"]
 
 [node name="mainScene" type="Node2D"]
+script = ExtResource("1_cpo1d")
 
 [node name="SceneCanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,23 +17,28 @@
 scale = Vector2(10.4, 10.4)
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_0ef22")]
-position = Vector2(-65, 1551)
+position = Vector2(2709, 5803)
 camera = NodePath("../MainCamera")
 
 [node name="MainCamera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 
 [node name="pentagram_spawner" parent="." instance=ExtResource("4_ri2ba")]
 
 [node name="AzazaelNPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
-position = Vector2(490, 1790)
+position = Vector2(-691, 1314)
 script = ExtResource("5_sgwwi")
 has_waited = false
 has_red_slip = false
 player = NodePath("../CharacterBody2D")
 
 [node name="DoloreNPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
-position = Vector2(544, 2168)
+position = Vector2(-250, 6380)
 script = ExtResource("6_vxh0b")
 has_waited = false
 has_red_slip = false
+player = NodePath("../CharacterBody2D")
+
+[node name="Cave Of Lost Souls" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
+position = Vector2(2937, 5616)
 player = NodePath("../CharacterBody2D")

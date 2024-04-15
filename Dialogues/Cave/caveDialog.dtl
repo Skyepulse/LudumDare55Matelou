@@ -1,0 +1,15 @@
+join caveSoul 1
+caveSoul: Hey! Welcome to the cave of... hum.. lost souls was it? Anyways! Here you can reset the memories of the residents! If you want to start over, here is the place (if you have enough souls of course hehe).
+caveSoul: So, what can I do for you!!?
+- Reset Azazael memories [if {Souls} >= 10][else="disable" alt_text="not enough souls (need 10)"]
+	[signal arg="resetAzazael"]
+	caveSoul: Done! Now go see Azazael to start over!
+- Reset Gos memories [if {Souls} >= 10][else="disable" alt_text="not enough souls (need 10)"]
+	caveSoul: Done! Now go see Gos to start over!
+	[signal arg="resetGos"]
+- Reset Dolore memories [if {Souls} >= 10][else="disable" alt_text="not enough souls (need 10)"]
+	[signal arg="resetDolore"]
+	caveSoul: Done! Now go see Dolore to start over!
+- Do nothing
+	[signal arg="nothing"]
+	caveSoul: Too bad... see you next time (Who are you again?)

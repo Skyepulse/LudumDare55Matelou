@@ -3,9 +3,17 @@ class_name Player
 
 @export var camera:Camera2D
 
+@onready var walkIdleTexture:Texture = preload("res://media/main_char/main_char_front.png")
+@onready var walkIdleTextureBack:Texture = preload("res://media/main_char/main_char_back.png")
+@onready var walkIdleTextureLeft:Texture = preload("res://media/main_char/mainchar_walking_front_1.png")
+@onready var walkIdleTextureRight:Texture = preload("res://media/main_char/mainchar_walking_front_2.png")
+@onready var sprite = $Sprite2D
+
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
+var corvee_ui: PackedScene = preload("res://Scenes/teleported_view_scene.tscn")
 var kmk_ui: PackedScene = preload("res://Scenes/kmk_control.tscn")
+var time_ui: PackedScene = preload("res://Scenes/time_left_view.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -18,6 +26,51 @@ var nearNPC:Node2D = null
 var dashWingUi
 var statsUi
 var kmkUi
+var corveeUi
+var timeUi
+var isInCorvee = false
+
+var changeTextureTimer:Timer
+
+var soulsNumber = 0
+
+func getSoulNumber():
+	return soulsNumber
+
+func addSouls(numSouls:int):
+	soulsNumber += numSouls
+	dashWingUi.update_souls(soulsNumber)
+	print("Souls: " + str(soulsNumber))
+
+func removeSouls(numSouls:int):
+	soulsNumber -= numSouls
+	dashWingUi.update_souls(soulsNumber)
+	print("Souls: " + str(soulsNumber))
+
+var pentagramEsquiveCount = 0
+
+func setPentagramEsquiveCount(value:int):
+	pentagramEsquiveCount = value
+
+func getPentagramEsquiveCount():
+	return pentagramEsquiveCount
+
+var pentagramEsquiveMax = 0
+
+func setPentagramEsquiveMax(value:int):
+	pentagramEsquiveMax = value
+
+func getPentagramEsquiveMax():
+	return pentagramEsquiveMax
+
+var numCorveesDone = 0
+
+func getNumCorveesDone():
+	return numCorveesDone
+
+func addCorveeDone():
+	numCorveesDone += 1
+
 @onready var pentagram_spawner = $'../pentagram_spawner'
 
 var pentagramsPaused = false
@@ -31,6 +84,8 @@ var sceneCanvasLayer:CanvasLayer
 const NPC_LAYER = 1 << 2
 
 var current_npc: NPC = null
+
+var canTalkAfterTimer:Timer
 
 #kiss marry kill stats
 var KISS_STAT = 20
@@ -67,8 +122,28 @@ func _ready():
 	kmkUi.hide()
 	kmkUi.player = self
 
+	corveeUi = corvee_ui.instantiate()
+	sceneCanvasLayer.add_child(corveeUi)
+	corveeUi.hide()
+	corveeUi.player = self
+
+	timeUi = time_ui.instantiate()
+	sceneCanvasLayer.add_child(timeUi)
+	timeUi.hide()
+	timeUi.player = self
+
 	z_index = PLAYER_Z_INDEX
 
+	canTalkAfterTimer = Timer.new()
+	canTalkAfterTimer.wait_time = 1
+	canTalkAfterTimer.timeout.connect(_on_can_talk_after_timer_timeout)
+	add_child(canTalkAfterTimer)
+
+	changeTextureTimer = Timer.new()
+	changeTextureTimer.wait_time = 0.3
+	changeTextureTimer.timeout.connect(_on_change_texture_timer_timeout)
+	add_child(changeTextureTimer)
+	changeTextureTimer.start()
 
 
 func _process(_delta):
@@ -76,18 +151,30 @@ func _process(_delta):
 
 	var has_pressed = false
 	# Check for input and modify velocity accordingly
-	if Input.is_action_pressed("move_up"):
-		if(!has_pressed): has_pressed = true
-		velocity.y -= 1
+	
 	if Input.is_action_pressed("move_down"):
 		if(!has_pressed): has_pressed = true
+		changeTextureTimer.paused = false
 		velocity.y += 1
 	if Input.is_action_pressed("move_left"):
 		if(!has_pressed): has_pressed = true
+		changeTextureTimer.paused = false
 		velocity.x -= 1
 	if Input.is_action_pressed("move_right"):
 		if(!has_pressed): has_pressed = true
+		changeTextureTimer.paused = false
 		velocity.x += 1
+	if Input.is_action_pressed("move_up"):
+		if(!has_pressed): has_pressed = true
+		sprite.texture = walkIdleTextureBack
+		changeTextureTimer.paused = true
+		velocity.y -= 1
+
+	if(!has_pressed):
+		sprite.texture = walkIdleTexture
+		changeTextureTimer.paused = true
+		
+	
 
 	velocity = velocity.normalized() * SPEED * dashSpeed
 
@@ -104,7 +191,8 @@ func _process(_delta):
 	#we update the camera position
 	move_camera()
 	update_talk_label()
-	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null):
+	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null and !isInCorvee):
+		print("Interacting with NPC")
 		nearNPC.talk()
 
 func move_camera():
@@ -122,7 +210,7 @@ func _on_area_2d_body_entered(body:Node2D):
 			var distanceOld = position.distance_to(nearNPC.position)
 			var distanceNew = position.distance_to(body.get_parent().position)
 			if(distanceNew < distanceOld):
-				nearNPC = body
+				nearNPC = body.get_parent()
 
 func _on_area_2d_body_exited(body:Node2D):
 	#First we check if there is another NPC near, if not we set it to null, if there is we set it to the closest one by default
@@ -166,8 +254,12 @@ func update_talk_label():
 		talkLabel.text = ""
 		talkLabel.visible = false
 	else:
-		talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
-		talkLabel.visible = true
+		if(nearNPC.name == 'Cave Of Lost Souls'): 
+			talkLabel.text = "Press E to interact with" + nearNPC.name + " (" + str(soulsNumber) + " souls)"
+			talkLabel.visible = true
+		else:
+			talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
+			talkLabel.visible = true
 
 func block_movements():
 	blocked = true
@@ -224,3 +316,35 @@ func unpause_pentagrams():
 
 		controller.resume_pentagram()
 
+func startCorvee():
+	isInCorvee = true
+	corveeUi.show()
+	dashWingUi.hide()
+	destroy_all_pentagrams()
+	pause_pentagrams()
+	block_movements()
+	corveeUi.start_dialog()
+
+
+func onCorveeFinished():
+	addCorveeDone()
+	corveeUi.hide()
+	show_dash_wing_ui()
+	unpause_pentagrams()
+	enable_movements()
+	canTalkAfterTimer.start()
+
+func _on_can_talk_after_timer_timeout():
+	canTalkAfterTimer.stop()
+	canTalkAfterTimer.wait_time = 1
+	isInCorvee = false
+
+func destroy_all_pentagrams():
+	pentagram_spawner.destroy_all_pentagrams()
+
+func _on_change_texture_timer_timeout():
+	if(sprite.texture == walkIdleTextureLeft):
+		sprite.texture = walkIdleTextureRight
+	else:
+		sprite.texture = walkIdleTextureLeft
+	changeTextureTimer.start()
