@@ -1,0 +1,9 @@
+join Goskeiroanez 1
+Goskeiroanez: So, have ye bin workin' solid?
+- Yes of course!
+	if randi()%2 == 0:
+		Goskeiroanez: Well... that's nae what the numberrs are saying.
+	else:
+		Goskeiroanez: A'm glad tae hear that!
+- It's hard to get the hang of it...
+	Goskeiroanez: Oh, dinnae ye worry, ye'll get there in nae time A'm sure!
