@@ -5,9 +5,24 @@ extends NPC
 @onready var texture:Texture = preload("res://media/npcs/dolore_texture_pixel.png")
 @onready var sprite = $Sprite2D
 
+var order = [
+	0, 9, 1, 9, 2, 9, 3, 9, 4, 9
+]
+
+var order_index = 0
+
 func _ready():
 	dialogs = [
-		"DoloreMeet"
+		"DoloreMeet", #0
+		"DoloreMeet2",#1
+		"DoloreMeet3",#2
+		"DoloreMeet4",#3
+		"DoloreMeet5",#4
+		"DoloreClub", #5
+		"DoloreUnion",#6
+		"DoloreGift1",#7
+		"DoloreGifts",#8
+		"DoloreFiller"#9
 	]
 	sprite.texture =texture
 	sprite.scale.x = 10.4
@@ -19,24 +34,23 @@ func _ready():
 
 func transition():
 	if dialogIndex < 0:
-		dialogIndex = 0
+		order_index = 0
+	dialogIndex = order[order_index]
+	order_index = min(order_index+1, order.size()-1)
 		
 func on_kiss():
 	if dialogIndex == 0 or dialogIndex == 1:
-		refuse()
+		Dialogic.start("DoloreRefuseKiss")
 	else:
 		PlayerStatCounter.dolore["kiss"]+=1
 func on_marry():
 	if dialogIndex == 0 or dialogIndex == 1:
-		refuse()
+		Dialogic.start("DoloreRefuseMarry")
 	else:
 		PlayerStatCounter.dolore["marry"]+=1
 func on_kill():
 	if dialogIndex == 0 or dialogIndex == 1:
-		refuse()
+		Dialogic.start("DoloreRefuseKill")
 	else:
 		PlayerStatCounter.dolore["kill"]+=1
-
-func refuse():
-	pass
 

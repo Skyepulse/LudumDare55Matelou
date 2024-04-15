@@ -1,0 +1,9 @@
+join Dolore 1
+Dolore: A gift for me? Man, that's great, let's see what you think I like.
+set {Gift} = randi() % 3
+if {Gift} == 0:
+	Dolore: I absolutely love this. For real mate, I'm impressed. I mean, we just met, right? Ya ain't a stalker, are you? Not that I would mind.
+elif {Gift} == 1:
+	That's kinda mid. But you're just a noob in here, so I'll forgive you.
+else:
+	Dolore: Mate that SUCKS. See, that's why ya talk to people before going all in. Cause then you would have known I hate that stuff.
