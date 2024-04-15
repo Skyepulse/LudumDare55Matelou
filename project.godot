@@ -29,17 +29,19 @@ directories/dch_directory={
 "caveSoul": "res://Dialogues/Cave/caveSoul.dch"
 }
 directories/dtl_directory={
+"AzazaelFiller": "res://Dialogues/Azazael/AzazaelFiller.dtl",
+"AzazaelGift1": "res://Dialogues/Azazael/AzazaelGift1.dtl",
+"AzazaelGifts": "res://Dialogues/Azazael/AzazaelGifts.dtl",
 "AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
 "AzazaelMeet2": "res://Dialogues/Azazael/AzazaelMeet2.dtl",
 "AzazaelMeet3": "res://Dialogues/Azazael/AzazaelMeet3.dtl",
+"AzazaelMeet4": "res://Dialogues/Azazael/AzazaelMeet4.dtl",
+"AzazaelRedSlip": "res://Dialogues/Azazael/AzazaelRedSlip.dtl",
+"AzazaelRedSlip2": "res://AzazaelRedSlip2.dtl",
 "AzazaelRefuse": "res://Dialogues/Azazael/AzazaelRefuse.dtl",
 "AzazaelWait": "res://Dialogues/Azazael/AzazaelWait.dtl",
 "AzazaelZouk": "res://Dialogues/Azazael/AzazaelZouk.dtl",
 "DoloreMeet": "res://Dialogues/Dolore/DoloreMeet.dtl",
-"Gift1": "res://Dialogues/Azazael/Gift1.dtl",
-"Gifts": "res://Dialogues/Azazael/Gifts.dtl",
-"RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
-"RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl",
 "caveDialog": "res://Dialogues/Cave/caveDialog.dtl",
 "corvee0": "res://Dialogues/Corvees/corvee0.dtl",
 "corvee1": "res://Dialogues/Corvees/corvee1.dtl",
@@ -53,7 +55,9 @@ layout/style_list=["res://Dialogues/Dialogic.tres", "res://Dialogues/full_screen
 layout/default_style="res://Dialogues/Dialogic.tres"
 variables={
 "Gift": "",
-"Souls": 0
+"Souls": 0,
+"has_union_card": false,
+"randChoice": 0.0
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
