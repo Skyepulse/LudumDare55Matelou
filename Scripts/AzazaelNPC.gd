@@ -30,3 +30,17 @@ func transition():
 			dialogIndex = 1
 	elif dialogIndex == 2:
 		dialogIndex = 3
+
+func on_kiss():
+	if dialogIndex == 0 or dialogIndex == 1:
+		refuse()
+func on_marry():
+	if dialogIndex == 0 or dialogIndex == 1:
+		refuse()
+func on_kill():
+	if dialogIndex == 0 or dialogIndex == 1:
+		refuse()
+
+func refuse():
+	Dialogic.start("AzazaelRefuse")
+	
