@@ -27,6 +27,11 @@ func talk():
 
 func start_dial(dial):
 	player.block_movements()
+	
+	player.set_kill_stat(kill)
+	player.set_marry_stat(marry)
+	player.set_kiss_stat(kiss)
+	
 	Dialogic.timeline_ended.connect(ended)
 	Dialogic.start(dial)
 	
