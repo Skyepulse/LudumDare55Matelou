@@ -4,6 +4,7 @@ const SPRITE_SCALE = 4
 var panelContainer:HBoxContainer
 var panelContainer2:HBoxContainer
 var panels
+@onready var inventoryPanel = $inventory/Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
