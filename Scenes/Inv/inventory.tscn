@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg5lxc3ntrxgu"]
+
+[ext_resource type="Script" path="res://inventory_manager.gd" id="1_rhjww"]
+
+[node name="Inventory" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rhjww")
