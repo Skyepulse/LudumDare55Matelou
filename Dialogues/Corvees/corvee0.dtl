@@ -1,0 +1,13 @@
+(Oh no... I stepped in a pentagram, a human must have summoned me in the overworld.\
+I will have to answer it's demands... what a pain...)
+join "Unknown Human" 1
+"Unknown Human": Hah! It worked!! Listen there demon, my girlfriend broke up with me and I've been down ever since. I want you to find a solution!!
+- Kill his girlfriend (gain 2 souls)
+	You go find his girlfriend, and you kill her without mercy!
+	[signal arg="choice1"]
+- Rip his heart out (gain 1 soul)
+	At least he won't be in pain anymore. 
+	[signal arg="choice2"]
+- "Listen dude, you have to let it go. Plenty of fish in the sea."
+	He looks at you confused, and you disappear.
+	[signal arg="choice3"]
