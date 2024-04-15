@@ -1,60 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw88xu8xrxcri"]
+[gd_scene load_steps=2 format=3 uid="uid://bw88xu8xrxcri"]
 
-[ext_resource type="Texture2D" uid="uid://b617e8q3043ha" path="res://media/npcs/pissed_off_dolore.png" id="1_jbos3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vfoti"]
-atlas = ExtResource("1_jbos3")
-region = Rect2(3.74622, 15.3166, 796.254, 784.683)
+[ext_resource type="Texture2D" uid="uid://c15tmx3ibarh6" path="res://temp_solution.png" id="1_5t7k5"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Control" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -2.0
-offset_right = 1153.0
-offset_bottom = 643.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.309804, 0.113725, 0.0627451, 1)
+color = Color(0.215686, 0.0705882, 0.0313726, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Logo" type="Sprite2D" parent="Control"]
-position = Vector2(794.625, 329.375)
-scale = Vector2(0.896043, 0.819834)
-texture = SubResource("AtlasTexture_vfoti")
-
-[node name="Play_button" type="Button" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
-offset_left = 554.5
-offset_top = 302.5
-offset_right = 599.5
-offset_bottom = 333.5
-size_flags_vertical = 4
-text = "Play!"
+texture = ExtResource("1_5t7k5")
+expand_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
