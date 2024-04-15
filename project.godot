@@ -36,10 +36,11 @@ directories/dtl_directory={
 "Gift1": "res://Dialogues/Azazael/Gift1.dtl",
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
 "RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
-"RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl"
+"RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl",
+"intro_timeline": "res://Dialogues/intro_timeline.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://Dialogues/Dialogic.tres"]
+layout/style_list=["res://Dialogues/Dialogic.tres", "res://Dialogues/full_screen_style.tres"]
 layout/default_style="res://Dialogues/Dialogic.tres"
 variables={
 "Gift": ""
