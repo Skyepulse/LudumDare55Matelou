@@ -10,14 +10,23 @@
 },
 "default_portrait": "Main",
 "description": "",
-"display_name": "Dolore",
+"display_name": "Goskeiroanez",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
 "Kill": {
 "export_overrides": {
-"image": "\"res://media/npcs/dolore_kill.png\""
+"image": "\"res://media/npcs/goskaeiroanez_kill.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Laughing": {
+"export_overrides": {
+"image": "\"res://media/npcs/laughing_goskeiroanez.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
@@ -26,7 +35,7 @@
 },
 "Main": {
 "export_overrides": {
-"image": "\"res://media/npcs/bdsm_demon.png\""
+"image": "\"res://media/npcs/scottish_demon.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
@@ -35,7 +44,7 @@
 },
 "Pissed": {
 "export_overrides": {
-"image": "\"res://media/npcs/pissed_off_dolore.png\""
+"image": "\"res://media/npcs/pissed_off_goskeiroanez.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

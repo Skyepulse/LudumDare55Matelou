@@ -42,14 +42,12 @@ func start_dial(dial):
 	
 	Dialogic.timeline_ended.connect(ended)
 	Dialogic.start(dial)
-	
+
 func gift():
-	next_state = "Gift1"
-	if firstGift:
-		firstGift = false
-		start_dial("Gift1")
-	else:
-		start_dial("Gifts")
+	start_dial(choose_gift())
+
+func choose_gift(): # To override
+	pass
 func ended():
 	player.enable_movements()
 	player.unpause_pentagrams()

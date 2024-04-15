@@ -1,0 +1,12 @@
+join Dolore 1
+set {randChoice} = randi() % 5
+if {randChoice} == 0:
+	Dolore: Ha! I just beat a guy bloody with his own hands, it was hilarious. Can't beat the classics.
+elif {randChoice} == 1:
+	Dolore: Did I already tell you I love the colour red? Legend has it humans have a very deep red stone, but I can't go on Earth myself. Apparently I'm too "unstable".
+elif {randChoice} == 2:
+	Dolore: There's an angel down there, it's kinda weird. I tried to have him join the Union, but he just asked if we were also advocating for human rights. Goddamn vegan mindset.
+elif {randChoice} == 3:
+	Dolore: Did you know Goskeiroanez used to be a priest? Comes from a weird place called Scotland. He ended down here cause he's ginger.
+elif {randChoice} == 4:
+	Dolore: I kind of miss the time I had a Red Slip. I lost it cause I kept ripping people's heart out. I just think they're neat, ya know?
