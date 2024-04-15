@@ -37,6 +37,6 @@ func on_kill():
 	else:
 		PlayerStatCounter.dolore["kill"]+=1
 
-func refuse(
+func refuse():
 	pass
-)
+
