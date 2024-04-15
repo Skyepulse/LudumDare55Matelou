@@ -1,0 +1,14 @@
+join Azazael 1
+set {randChoice} = randi() % 6
+if {randChoice} == 0:
+	Azazael: I just saw some guy get eaten alive, then spat back in form, and eaten again. That's not a normal occurrence, right?
+elif {randChoice} == 1:
+	Azazael: Some rocks down there are screaming in pain... You're not building stuff out of people, are you?
+elif {randChoice} == 2:
+	Azazael: I'm pretty sure the person over here is being forced to eat eyes.
+elif {randChoice} == 3:
+	Azazael: Dolore is beating someone up with their own hands, he keeps screaming "why are you hitting yourself". He's really messed up, even for a demon.
+elif {randChoice} == 4:
+	Azazael: Did you hang that guy with his bowels?
+elif {randChoice} == 5:
+	Azazael: There's absolutely nothing to drink down here. I'd bless for some water.

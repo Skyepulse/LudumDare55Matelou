@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg2hdduvgspjf"]
+[gd_scene load_steps=4 format=3 uid="uid://dg2hdduvgspjf"]
 
-[ext_resource type="Script" path="res://Scenes/end_scene.gd" id="1_2dfbj"]
+[ext_resource type="Script" path="res://Scripts/end_scene.gd" id="1_2dfbj"]
 [ext_resource type="Texture2D" uid="uid://ddr5nu6l6mub5" path="res://media/npcs/blushing_azazael.png" id="2_21vf6"]
 [ext_resource type="Texture2D" uid="uid://mtd5fgph5su2" path="res://media/npcs/sad_azazael.png" id="3_bdhmv"]
-[ext_resource type="Texture2D" uid="uid://cahc8pkn42dra" path="res://media/npcs/scottish_demon.png" id="4_5nt81"]
-[ext_resource type="Texture2D" uid="uid://oaigyvbs8ml3" path="res://media/npcs/pissed_off_goskeiroanez.png" id="5_xobx1"]
-[ext_resource type="Texture2D" uid="uid://bdh0lelv3gbta" path="res://media/npcs/laughing_goskeiroanez.png" id="6_2200n"]
-[ext_resource type="Texture2D" uid="uid://cscsu5wf1cam6" path="res://media/npcs/bdsm_demon.png" id="7_yjeu7"]
 
 [node name="endScene" type="Node2D"]
 script = ExtResource("1_2dfbj")
@@ -45,59 +41,23 @@ scroll_following = true
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="angel_kiss" type="TextureRect" parent="Control"]
+[node name="angel" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_21vf6")
 
-[node name="angel_kill" type="TextureRect" parent="Control"]
+[node name="scot" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_bdhmv")
 
-[node name="angel_marry" type="TextureRect" parent="Control"]
+[node name="dolore" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_21vf6")
-
-[node name="scot_kiss" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_5nt81")
-
-[node name="scot_kill" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_xobx1")
-
-[node name="scot_marry" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_2200n")
-
-[node name="dolore_kiss" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_yjeu7")
-
-[node name="dolore_kill" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_yjeu7")
-
-[node name="dolore_marry" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_yjeu7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0

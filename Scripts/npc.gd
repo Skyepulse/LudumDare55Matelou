@@ -61,12 +61,15 @@ func transition(): #This will be overriden
 
 func on_kiss():
 	print("got kissed")
+	
 	pass
 func on_marry():
 	print("got maried")
+	
 	pass
 func on_kill():
 	print("got killed")
+	
 	pass
 
 

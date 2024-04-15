@@ -3,7 +3,6 @@ extends NPC
 @export var has_waited = false
 @export var has_red_slip = false
 
-
 @onready var azazel_texture:Texture = preload("res://media/npcs/azazael_texture_pixels.png")
 @onready var sprite = $Sprite2D
 
@@ -41,12 +40,18 @@ func transition():
 func on_kiss():
 	if dialogIndex == 0 or dialogIndex == 1:
 		refuse()
+	else:
+		PlayerStatCounter.azazael["kiss"]+=1
 func on_marry():
 	if dialogIndex == 0 or dialogIndex == 1:
 		refuse()
+	else:
+		PlayerStatCounter.azazael["marry"]+=1
 func on_kill():
 	if dialogIndex == 0 or dialogIndex == 1:
 		refuse()
+	else:
+		PlayerStatCounter.azazael["kill"]+=1
 
 func refuse():
 	Dialogic.start("AzazaelRefuse")
