@@ -1,7 +1,7 @@
 extends Resource
 class_name Item
 
-enum Liking {LOVE, NEUTRAL, HATE}
+enum Liking {LOVE, NEUTRAL, HATE, NONE}
 
 @export var name: String
 @export var icon: Texture2D
