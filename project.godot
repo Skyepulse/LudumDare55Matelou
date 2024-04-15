@@ -24,7 +24,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Azazael": "res://Dialogues/Azazael/Azazael.dch",
 "Dolore": "res://Dialogues/Dolore/Dolore.dch",
-"Unknown Human": "res://Dialogues/Corvees/Unknown Human.dch"
+"Unknown Human": "res://Dialogues/Corvees/Unknown Human.dch",
+"caveSoul": "res://Dialogues/Cave/caveSoul.dch"
 }
 directories/dtl_directory={
 "AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
@@ -38,6 +39,7 @@ directories/dtl_directory={
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
 "RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
 "RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl",
+"caveDialog": "res://Dialogues/Cave/caveDialog.dtl",
 "corvee0": "res://Dialogues/Corvees/corvee0.dtl",
 "corvee1": "res://Dialogues/Corvees/corvee1.dtl",
 "corvee2": "res://Dialogues/Corvees/corvee2.dtl",
@@ -49,8 +51,8 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogues/Dialogic.tres", "res://Dialogues/full_screen_style.tres"]
 layout/default_style="res://Dialogues/Dialogic.tres"
 variables={
-"DialogChoice": 0,
-"Gift": ""
+"Gift": "",
+"Souls": 0
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
