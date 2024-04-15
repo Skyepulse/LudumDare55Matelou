@@ -18,8 +18,8 @@ func _ready():
 	panelContainer2 = $wings/VBoxContainer/HBoxContainer2
 	var panel = panelContainer2.get_node("Panel")
 	var spr = panel.get_node("Sprite2D")
-	spr.set_scale(Vector2(SPRITE_SCALE, SPRITE_SCALE))
-	var spriteS = spr.get_texture().get_size()*SPRITE_SCALE
+	spr.set_scale(Vector2(SPRITE_SCALE/2, SPRITE_SCALE/2))
+	var spriteS = spr.get_texture().get_size()*SPRITE_SCALE/2
 	panel.set_custom_minimum_size(Vector2(spriteS.x, spriteS.y))
 	spr.set_position(Vector2(spriteS.x/2, spriteS.y/2))
 

@@ -48,6 +48,14 @@ func setPentagramEsquiveMax(value:int):
 func getPentagramEsquiveMax():
 	return pentagramEsquiveMax
 
+var numCorveesDone = 0
+
+func getNumCorveesDone():
+	return numCorveesDone
+
+func addCorveeDone():
+	numCorveesDone += 1
+
 @onready var pentagram_spawner = $'../pentagram_spawner'
 
 var pentagramsPaused = false
@@ -278,6 +286,7 @@ func startCorvee():
 
 
 func onCorveeFinished():
+	addCorveeDone()
 	corveeUi.hide()
 	show_dash_wing_ui()
 	unpause_pentagrams()
