@@ -4,6 +4,7 @@ class_name Player
 @export var camera:Camera2D
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
+var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
 const DASH_NUM = 3
@@ -13,6 +14,7 @@ var dashRecoveryTimer:Timer
 var dashSpeed = 1
 var nearNPC:Node2D = null 
 var dashWingUi
+var statsUi
 
 var talkLabel:Label
 
@@ -45,6 +47,9 @@ func _ready():
 	dashWingUi = dash_wing_ui.instantiate()
 	sceneCanvasLayer = get_tree().get_root().get_node("mainScene").get_node("SceneCanvasLayer")
 	sceneCanvasLayer.add_child(dashWingUi)
+
+	statsUi = stats_ui.instantiate()
+	sceneCanvasLayer.add_child(statsUi)
 
 
 
@@ -148,6 +153,12 @@ func hide_dash_wing_ui():
 
 func show_dash_wing_ui():
 	dashWingUi.show()
+
+func hide_stats_ui():
+	statsUi.hide()
+
+func show_stats_ui():
+	statsUi.show()
 
 func add_kill_stat(value):
 	KILL_STAT=max(value+KILL_STAT,100)
