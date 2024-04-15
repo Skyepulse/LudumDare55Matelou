@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dm2eap376ippo"]
+
+[ext_resource type="Texture2D" uid="uid://k36svo2cv1vr" path="res://media/items/preserved_haggish.png" id="1_8bgww"]
+[ext_resource type="Script" path="res://Scripts/item_resource.gd" id="1_hls51"]
+
+[resource]
+script = ExtResource("1_hls51")
+name = "preserved haggish"
+icon = ExtResource("1_8bgww")
+azazael_liking = 1
+dolore_liking = 1
+gos_liking = 0

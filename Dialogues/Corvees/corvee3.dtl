@@ -10,4 +10,4 @@ join "Unknown Human" 1
 	[signal arg="choice2"]
 - Take the ring but do not grant him his wish!
 	How evil... he is burning to death! You obtain one unusually bright pigeon's blood ruby!
-	[signal arg="choice 3"]
+	[signal arg="choice3"]

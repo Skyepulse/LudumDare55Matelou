@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://csdskofiderwb"]
+
+[ext_resource type="Texture2D" uid="uid://cgwvnsfm6bwtm" path="res://media/items/demon_school_id.png" id="1_26n2m"]
+[ext_resource type="Script" path="res://Scripts/item_resource.gd" id="1_nseqx"]
+
+[resource]
+script = ExtResource("1_nseqx")
+name = "demon school ID"
+icon = ExtResource("1_26n2m")
+azazael_liking = 3
+dolore_liking = 3
+gos_liking = 0
