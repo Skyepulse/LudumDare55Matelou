@@ -612,7 +612,7 @@ func update_preview(force:=false) -> void:
 
 
 func _on_some_resource_saved(file:Variant) -> void:
-	if file is Resource and file == current_previewed_scene.script:
+	if file is Resource and current_previewed_scene and file == current_previewed_scene.script:
 		update_preview(true)
 
 	if typeof(file) == TYPE_STRING and file == current_previewed_scene.get_meta("path", ""):
