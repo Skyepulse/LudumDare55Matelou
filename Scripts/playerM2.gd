@@ -32,6 +32,11 @@ func addSouls(numSouls:int):
 	dashWingUi.update_souls(soulsNumber)
 	print("Souls: " + str(soulsNumber))
 
+func removeSouls(numSouls:int):
+	soulsNumber -= numSouls
+	dashWingUi.update_souls(soulsNumber)
+	print("Souls: " + str(soulsNumber))
+
 var pentagramEsquiveCount = 0
 
 func setPentagramEsquiveCount(value:int):
@@ -173,7 +178,7 @@ func _on_area_2d_body_entered(body:Node2D):
 			var distanceOld = position.distance_to(nearNPC.position)
 			var distanceNew = position.distance_to(body.get_parent().position)
 			if(distanceNew < distanceOld):
-				nearNPC = body
+				nearNPC = body.get_parent()
 
 func _on_area_2d_body_exited(body:Node2D):
 	#First we check if there is another NPC near, if not we set it to null, if there is we set it to the closest one by default
@@ -217,8 +222,12 @@ func update_talk_label():
 		talkLabel.text = ""
 		talkLabel.visible = false
 	else:
-		talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
-		talkLabel.visible = true
+		if(nearNPC.name == 'Cave Of Lost Souls'): 
+			talkLabel.text = "Press E to interact with" + nearNPC.name + " (" + str(soulsNumber) + " souls)"
+			talkLabel.visible = true
+		else:
+			talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
+			talkLabel.visible = true
 
 func block_movements():
 	blocked = true
