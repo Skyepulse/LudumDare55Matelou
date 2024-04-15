@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c02ef2kf11cum"]
+
+[ext_resource type="Texture2D" uid="uid://elyfgvdc54vn" path="res://media/items/vial_of_holy_water.png" id="1_bsb4y"]
+[ext_resource type="Script" path="res://Scripts/item_resource.gd" id="1_ebum2"]
+
+[resource]
+script = ExtResource("1_ebum2")
+name = "vial of holy water"
+icon = ExtResource("1_bsb4y")
+azazael_liking = 0
+dolore_liking = 1
+gos_liking = 2

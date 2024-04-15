@@ -36,12 +36,23 @@ var id = 0
 func get_inventory():
 	return inventory
 
-func add_to_inventory(item):
-	inventory[id] = item
-	id += 1
+func add_to_inventory(objname):
+	if objname in inventory:
+		inventory[objname] += 1
+	else:
+		inventory[objname] = 1
+	print(inventory)
+	update_inventory_ui()
 
-func remove_from_inventory(itemId):
-	inventory.erase(itemId)
+func remove_from_inventory(objname):
+	if objname in inventory:
+		inventory[objname] -= 1
+		if inventory[objname] == 0:
+			inventory.erase(objname)
+	update_inventory_ui()
+
+func update_inventory_ui():
+	dashWingUi.update_inventory(inventory)
 
 var changeTextureTimer:Timer
 

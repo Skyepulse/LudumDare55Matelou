@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bedfj5np8fqqe"]
+[gd_scene load_steps=6 format=3 uid="uid://bedfj5np8fqqe"]
 
 [ext_resource type="Script" path="res://Scripts/dash_wing_ui.gd" id="1_eyobh"]
 [ext_resource type="StyleBox" uid="uid://by8g5iqv4j03p" path="res://Styles/dash_ui_panel_style.tres" id="2_k7sql"]
 [ext_resource type="Texture2D" uid="uid://bsb6dqeosdl0b" path="res://media/items/demon_wing.png" id="3_5f6s5"]
 [ext_resource type="Texture2D" uid="uid://bsxalqgk5s8nd" path="res://media/icons/soul.png" id="4_tijth"]
+[ext_resource type="Texture2D" uid="uid://k36svo2cv1vr" path="res://media/items/preserved_haggish.png" id="5_2iqhn"]
 
 [node name="dashWingUI" type="Control"]
 layout_mode = 3
@@ -72,20 +73,202 @@ text = "0"
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Inventory"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
+offset_top = -63.0
+grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Panel" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel2" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel2"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel3" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel3"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel4" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel4"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel5" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel5"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel6" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel6"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel6"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel7" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel7"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel8" type="Panel" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/HBoxContainer/Panel8"]
+position = Vector2(0, -608)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2iqhn")
+
+[node name="Label" type="Label" parent="Inventory/HBoxContainer/Panel8"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
