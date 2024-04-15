@@ -14,9 +14,8 @@
 [node name="mapMainNode" parent="." instance=ExtResource("1_awtvf")]
 scale = Vector2(10.4, 10.4)
 
-[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_0ef22")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_0ef22")]
 position = Vector2(-65, 1551)
-camera = NodePath("../MainCamera")
 
 [node name="MainCamera" type="Camera2D" parent="."]
 
