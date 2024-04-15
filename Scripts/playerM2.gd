@@ -30,6 +30,19 @@ var corveeUi
 var timeUi
 var isInCorvee = false
 
+var inventory = {}
+var id = 0
+
+func get_inventory():
+	return inventory
+
+func add_to_inventory(item):
+	inventory[id] = item
+	id += 1
+
+func remove_from_inventory(itemId):
+	inventory.erase(itemId)
+
 var changeTextureTimer:Timer
 
 var soulsNumber = 0
