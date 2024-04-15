@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cme4qx28ge16c"
-path="res://.godot/imported/laughing_goskeiroanez.png-734b8dce32463c4a3afd83ef3709d667.ctex"
+uid="uid://cahc8pkn42dra"
+path="res://.godot/imported/scottish_demon.png-c674722d1291bcfa53b125a5d9b477da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/npcs/laughing_goskeiroanez.png"
-dest_files=["res://.godot/imported/laughing_goskeiroanez.png-734b8dce32463c4a3afd83ef3709d667.ctex"]
+source_file="res://media/npcs/scottish_demon.png"
+dest_files=["res://.godot/imported/scottish_demon.png-c674722d1291bcfa53b125a5d9b477da.ctex"]
 
 [params]
 
