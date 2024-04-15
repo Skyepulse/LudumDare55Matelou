@@ -3,6 +3,10 @@ extends NPC
 @export var has_waited = false
 @export var has_red_slip = false
 
+
+@onready var azazel_texture:Texture = preload("res://media/npcs/azazael_texture_pixels.png")
+@onready var sprite = $Sprite2D
+
 func _ready():
 	dialogs = [
 		"AzazaelMeet", # 0
@@ -13,6 +17,9 @@ func _ready():
 		"RedSlip",     # 5
 		"RedSlip2"     # 6
 	]
+	sprite.texture =azazel_texture
+	sprite.scale.x = 10.4
+	sprite.scale.y = 10.4
 	kiss = 70
 	marry = 10
 	kill = 10
