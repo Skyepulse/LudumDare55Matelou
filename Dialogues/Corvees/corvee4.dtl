@@ -1,0 +1,13 @@
+(Oh no... I stepped in a pentagram, a human must have summoned me in the overworld.\
+I will have to answer it's demands... what a pain...)
+join "Unknown Human" 1
+"Unknown Human": Oh! It worked honey... (You observe a desperate couple). We need you to find our son please! He's been missing for a month, we're desperate. Here is his teddybear, it may help you find him!
+- Inform them their son is dead: his soul has checked into Heaven some time ago
+	"Unknown Human": I- It can't be (You leave as they start crying). You obtain one blue teddybear!
+	[signal arg="choice1"]
+- Take the teddybear and create a doppleganger ! (gain 2 souls)
+	They actually believe they found their son! You obtain a blue teddybear and 2 souls!
+	[signal arg="choice2"]
+- Refuse the teddyBear, but still create the doppleganger.
+	They actually believe they found their son! You obtain a blue teddybear.
+	[signal arg="choice3"]

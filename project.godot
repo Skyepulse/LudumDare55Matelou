@@ -24,8 +24,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Azazael": "res://Dialogues/Azazael/Azazael.dch",
 "Dolore": "res://Dialogues/Dolore/Dolore.dch",
-"Unknown Human": "res://Dialogues/Corvees/Unknown Human.dch",
-"narratorCorvee": "res://Dialogues/Corvees/narratorCorvee.dch"
+"Unknown Human": "res://Dialogues/Corvees/Unknown Human.dch"
 }
 directories/dtl_directory={
 "AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
@@ -39,8 +38,12 @@ directories/dtl_directory={
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
 "RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
 "RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl",
+"corvee0": "res://Dialogues/Corvees/corvee0.dtl",
 "corvee1": "res://Dialogues/Corvees/corvee1.dtl",
-"intro_timeline": "res://Dialogues/intro_timeline.dtl"
+"intro_timeline": "res://Dialogues/intro_timeline.dtl",
+"corvee2": "res://Dialogues/Corvees/corvee2.dtl",
+"corvee3": "res://Dialogues/Corvees/corvee3.dtl",
+"corvee4": "res://Dialogues/Corvees/corvee4.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogues/Dialogic.tres", "res://Dialogues/full_screen_style.tres"]

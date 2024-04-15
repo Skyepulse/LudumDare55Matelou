@@ -67,6 +67,7 @@ func inst(pos : Vector2) -> void :
 		instance.get_node("big_pentagram").set_sprite_texture('big')
 		pentagramPosList[index] = rand_pos
 		index += 1
+		
 
 	else:
 		var rand_pos = random_pos(pos,"small")
@@ -131,3 +132,14 @@ func pause_spawner():
 
 func unpause_spawner():
 	time.paused = false
+
+func destroy_all_pentagrams():
+	for pentagram_id in instances:
+		var controller = instances[pentagram_id].find_children('*_pentagram')[0]
+		controller.force_die()
+	print(instances)
+	pentagramPosList.clear()
+	instances.clear()
+	if(player.getPentagramEsquiveMax() < index):
+		player.setPentagramEsquiveMax(index)
+	index = 0
