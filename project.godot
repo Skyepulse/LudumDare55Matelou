@@ -125,6 +125,7 @@ dialogic_default_action={
 2d_physics/layer_4="walkable"
 2d_physics/layer_5="not_walkable"
 2d_physics/layer_6="pentagrams"
+2d_physics/layer_8="npc_check"
 
 [rendering]
 

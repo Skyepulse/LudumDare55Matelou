@@ -1,10 +1,12 @@
 extends Area2D
 
-const PENTAGRAM_RADIUS = 16
+const PENTAGRAM_RADIUS = 8
+const BIG_PENTAGRAM_RADIUS = 16
 const PENTAGRAM_SCALE = 10.4
 const PENTAGRAM_Z_INDEX = 1
 
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var playerCharacter:CharacterBody2D = get_tree().get_root().get_node("mainScene").get_node("CharacterBody2D")
 var tileMap = preload("res://Scenes/map_main_node.tscn")
 var stayTimer: Timer
 
@@ -18,9 +20,11 @@ var isPlayerInside: bool = false
 
 var isBig:bool = false
 
+func set_is_big(isBig : bool) -> void:
+	self.isBig = isBig
+
 var colorTileMapPositionSmall = [0, 16, 32]
 var colorTileMapPositionBig = [48, 80, 112]
-
 
 func set_stay_time(time : float) -> void:
 	stayTime = time
@@ -36,6 +40,15 @@ func set_id(id : int) -> void:
 
 func get_id() -> int:
 	return instanceID
+
+func set_radius(radius : float) -> void:
+	get_node("CollisionShape2D").shape.radius = radius
+
+func set_sprite_texture(type:String) -> void:
+	if(type == "big"):
+		self.sprite.texture.region.position.x = colorTileMapPositionBig[randi() % 3]
+	else:
+		self.sprite.texture.region.position.x = colorTileMapPositionSmall[randi() % 3]
 
 func _ready() -> void:
 	#connect the body and the pentagram
@@ -54,17 +67,11 @@ func _ready() -> void:
 	var new_texture = sprite.texture.duplicate()
 	sprite.texture = new_texture
 
-	var randomColor = randi() % 3
-	if(isBig):
-		self.sprite.texture.region.position.x = colorTileMapPositionBig[randomColor]
-	else:
-		self.sprite.texture.region.position.x = colorTileMapPositionSmall[randomColor]
-
 func _on_body_entered(body: Node2D) -> void:
 	var player := body as CharacterBody2D
 	if not player :		
 		return
-		
+	print('Player entered')
 	isPlayerInside = true
 
 func _on_body_exited(body: Node2D) -> void:
