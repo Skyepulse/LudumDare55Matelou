@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2wae4314v3us"]
+
+[ext_resource type="Script" path="res://Scripts/pentagram.gd" id="1_bnh5u"]
+[ext_resource type="Texture2D" uid="uid://8s40rl7nquo0" path="res://tilemaps/tilemap.png" id="2_ynatm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dlfk"]
+atlas = ExtResource("2_ynatm")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cc7av"]
+radius = 8.0
+
+[node name="small_pentagram_scene" type="Node2D"]
+scale = Vector2(10.4, 10.4)
+
+[node name="small_pentagram" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 17
+script = ExtResource("1_bnh5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="small_pentagram"]
+texture = SubResource("AtlasTexture_2dlfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="small_pentagram"]
+visible = false
+shape = SubResource("CircleShape2D_cc7av")
+one_way_collision_margin = 0.0

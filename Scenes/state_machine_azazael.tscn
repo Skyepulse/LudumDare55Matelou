@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm5i3a3l7htgh"]
+
+[ext_resource type="Script" path="res://Scripts/state_machine.gd" id="1_ngeo6"]
+[ext_resource type="Script" path="res://Scripts/state.gd" id="2_eowgo"]
+
+[node name="StateMachineAzazael" type="Node"]
+script = ExtResource("1_ngeo6")
+initial_state = null
+conditions = null
+
+[node name="FirstTalk" type="Node" parent="."]
+script = ExtResource("2_eowgo")
+next_dialogs_conditions = Array[Array]([[]])
