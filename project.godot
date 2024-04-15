@@ -39,8 +39,8 @@ directories/dtl_directory={
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
 "RedSlip": "res://Dialogues/Azazael/RedSlip.dtl",
 "RedSlip2": "res://Dialogues/Azazael/RedSlip2.dtl",
-"intro_timeline": "res://Dialogues/intro_timeline.dtl",
-"corvee1": "res://Dialogues/Corvees/corvee1.dtl"
+"corvee1": "res://Dialogues/Corvees/corvee1.dtl",
+"intro_timeline": "res://Dialogues/intro_timeline.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogues/Dialogic.tres", "res://Dialogues/full_screen_style.tres"]
