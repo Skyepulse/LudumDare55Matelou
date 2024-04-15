@@ -2,16 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxdgwfpaadawy"
-path="res://.godot/imported/tile_map_32.png-25bebc18817928703e4ab14e1cd97e53.ctex"
+<<<<<<< HEAD
+uid="uid://da3pmk005d1e"
+=======
+uid="uid://uo8xl4nkidvx"
+>>>>>>> c460167d8c88c071f1c3daf0e772affbbca2a44c
+path="res://.godot/imported/marry_bar.png-e95e4e5fcc34bd1abf8bc68755c2e420.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/tile_maps/tile_map_32.png"
-dest_files=["res://.godot/imported/tile_map_32.png-25bebc18817928703e4ab14e1cd97e53.ctex"]
+source_file="res://media/stat_bars/marry_bar.png"
+dest_files=["res://.godot/imported/marry_bar.png-e95e4e5fcc34bd1abf8bc68755c2e420.ctex"]
 
 [params]
 
