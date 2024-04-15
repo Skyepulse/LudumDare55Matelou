@@ -26,6 +26,8 @@ var sceneCanvasLayer:CanvasLayer
 #Bitmap value for layer 3
 const NPC_LAYER = 1 << 2
 
+var current_npc: NPC = null
+
 #kiss marry kill stats
 var KISS_STAT = 20
 var MARRY_STAT = 20
@@ -59,6 +61,7 @@ func _ready():
 	kmkUi = kmk_ui.instantiate()
 	sceneCanvasLayer.add_child(kmkUi)
 	kmkUi.hide()
+	kmkUi.player = self
 
 
 

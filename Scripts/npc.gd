@@ -32,6 +32,8 @@ func start_dial(dial):
 	player.set_marry_stat(marry)
 	player.set_kiss_stat(kiss)
 	
+	player.current_npc = self
+	
 	Dialogic.timeline_ended.connect(ended)
 	Dialogic.start(dial)
 	
@@ -48,3 +50,14 @@ func ended():
 
 func transition(): #This will be overriden
 	dialogIndex = (dialogIndex + 1) % dialogs.size()
+
+func on_kiss():
+	print("got kissed")
+	pass
+func on_marry():
+	print("got maried")
+	pass
+func on_kill():
+	print("got killed")
+	pass
+

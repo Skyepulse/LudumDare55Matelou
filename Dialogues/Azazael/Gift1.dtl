@@ -1,4 +1,4 @@
-Azazael: That's... weirdly thoughtful? I mean, I have been feeling alone, trapped here with, erm, your lot. So it's great to know at least someone acknowledged me.
+Azazael: That's... weirdly thoughtful? I mean, I *have* been feeling alone, trapped here with, erm, *your lot*. So it's great to know at least someone acknowledged me.
 set {Gift} = randi() % 3
 if {Gift} == 0:
 	Azazael: I'm extremely thankful for that, I'll find a good spot for it. Little ray of sunshine in this otherwise very dark cave.
