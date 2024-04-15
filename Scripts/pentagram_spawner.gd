@@ -11,6 +11,7 @@ const BIG_PENTAGRAM_RADIUS = 16
 var pentagramPosList = {}
 var instances = {}
 var index = 0
+var numTries = 4
 
 var pentagram = preload("res://Scenes/small_pentagram_scene.tscn")
 var big_pentagram = preload("res://Scenes/big_pentagram_scene.tscn")
@@ -52,7 +53,11 @@ func inst(pos : Vector2) -> void :
 	if(rand_num < 0.1):
 		var rand_pos = random_pos(pos,"big")
 		if(!can_instantiate_object(rand_pos, BIG_PENTAGRAM_RADIUS + 1, PENTAGRAM_SCALE)): 
-			print("Can't instantiate object")
+			if(numTries > 0):
+				numTries -= 1
+				inst(pos)
+			else:
+				print("Can't instantiate object")
 			return
 		
 		#instantiate the pentagram
@@ -67,12 +72,18 @@ func inst(pos : Vector2) -> void :
 		instance.get_node("big_pentagram").set_sprite_texture('big')
 		pentagramPosList[index] = rand_pos
 		index += 1
+		numTries = 4
+		
 
 	else:
 		var rand_pos = random_pos(pos,"small")
 
 		if(!can_instantiate_object(rand_pos, PENTAGRAM_RADIUS + 1, PENTAGRAM_SCALE)): 
-			print("Can't instantiate object")
+			if(numTries > 0):
+				numTries -= 1
+				inst(pos)
+			else:
+				print("Can't instantiate object")
 			return
 
 		#instantiate the pentagram
@@ -85,6 +96,7 @@ func inst(pos : Vector2) -> void :
 		instance.get_node("small_pentagram").set_sprite_texture('small')
 		pentagramPosList[index] = rand_pos
 		index += 1
+		numTries = 4
 
 func _on_timer_timeout():
 	inst(player.global_position)
@@ -131,3 +143,14 @@ func pause_spawner():
 
 func unpause_spawner():
 	time.paused = false
+
+func destroy_all_pentagrams():
+	for pentagram_id in instances:
+		var controller = instances[pentagram_id].find_children('*_pentagram')[0]
+		controller.force_die()
+	print(instances)
+	pentagramPosList.clear()
+	instances.clear()
+	if(player.getPentagramEsquiveMax() < index):
+		player.setPentagramEsquiveMax(index)
+	index = 0

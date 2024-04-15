@@ -5,6 +5,7 @@ class_name Player
 
 var dash_wing_ui: PackedScene = preload("res://Scenes/dash_wing_ui.tscn")
 var stats_ui: PackedScene = preload("res://Scenes/stats_control.tscn")
+var corvee_ui: PackedScene = preload("res://Scenes/teleported_view_scene.tscn")
 var kmk_ui: PackedScene = preload("res://Scenes/kmk_control.tscn")
 const SPEED = 500
 const DASH_RECOVERY_TIME = 3
@@ -18,6 +19,35 @@ var nearNPC:Node2D = null
 var dashWingUi
 var statsUi
 var kmkUi
+var corveeUi
+var isInCorvee = false
+
+var soulsNumber = 0
+
+func getSoulNumber():
+	return soulsNumber
+
+func addSouls(numSouls:int):
+	soulsNumber += numSouls
+	dashWingUi.update_souls(soulsNumber)
+	print("Souls: " + str(soulsNumber))
+
+var pentagramEsquiveCount = 0
+
+func setPentagramEsquiveCount(value:int):
+	pentagramEsquiveCount = value
+
+func getPentagramEsquiveCount():
+	return pentagramEsquiveCount
+
+var pentagramEsquiveMax = 0
+
+func setPentagramEsquiveMax(value:int):
+	pentagramEsquiveMax = value
+
+func getPentagramEsquiveMax():
+	return pentagramEsquiveMax
+
 @onready var pentagram_spawner = $'../pentagram_spawner'
 
 var pentagramsPaused = false
@@ -31,6 +61,8 @@ var sceneCanvasLayer:CanvasLayer
 const NPC_LAYER = 1 << 2
 
 var current_npc: NPC = null
+
+var canTalkAfterTimer:Timer
 
 #kiss marry kill stats
 var KISS_STAT = 20
@@ -67,7 +99,17 @@ func _ready():
 	kmkUi.hide()
 	kmkUi.player = self
 
+	corveeUi = corvee_ui.instantiate()
+	sceneCanvasLayer.add_child(corveeUi)
+	corveeUi.hide()
+	corveeUi.player = self
+
 	z_index = PLAYER_Z_INDEX
+
+	canTalkAfterTimer = Timer.new()
+	canTalkAfterTimer.wait_time = 1
+	canTalkAfterTimer.timeout.connect(_on_can_talk_after_timer_timeout)
+	add_child(canTalkAfterTimer)
 
 
 
@@ -104,7 +146,8 @@ func _process(_delta):
 	#we update the camera position
 	move_camera()
 	update_talk_label()
-	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null):
+	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null and !isInCorvee):
+		print("Interacting with NPC")
 		nearNPC.talk()
 
 func move_camera():
@@ -224,3 +267,27 @@ func unpause_pentagrams():
 
 		controller.resume_pentagram()
 
+func startCorvee():
+	isInCorvee = true
+	corveeUi.show()
+	dashWingUi.hide()
+	destroy_all_pentagrams()
+	pause_pentagrams()
+	block_movements()
+	corveeUi.start_dialog()
+
+
+func onCorveeFinished():
+	corveeUi.hide()
+	show_dash_wing_ui()
+	unpause_pentagrams()
+	enable_movements()
+	canTalkAfterTimer.start()
+
+func _on_can_talk_after_timer_timeout():
+	canTalkAfterTimer.stop()
+	canTalkAfterTimer.wait_time = 1
+	isInCorvee = false
+
+func destroy_all_pentagrams():
+	pentagram_spawner.destroy_all_pentagrams()

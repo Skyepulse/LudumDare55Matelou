@@ -1,0 +1,14 @@
+(Oh no... I stepped in a pentagram, a human must have summoned me in the overworld.\
+I will have to answer it's demands... what a pain...)
+join "Unknown Human" 1
+"Unknown Human": (You see a room full of priests in praying position!)\
+I conjure you demon! Repent from all your sins and go back to the Nether where you belong!
+- Stand there confused.
+	You stand confused as they spray holy water on you.You gain some holy water!
+	[signal arg="choice1"]
+- Kill all the priests in the room! (gain 5 souls)
+	You slash the 5 priests with the power of your claws! You obtain 5 souls.
+	[signal arg="choice2"]
+- "You ought to be one of the biggest idiots I've met"(gain 1 soul)
+	You leave as the priests observe you with disarray.
+	[signal arg="choice3"]

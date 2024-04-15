@@ -1,0 +1,13 @@
+(Oh no... I stepped in a pentagram, a human must have summoned me in the overworld.\
+I will have to answer it's demands... what a pain...)
+join "Unknown Human" 1
+"Unknown Human": Hello my name is Baptiste! I would like to be immune to fire please (I love fire). I have this old ring from my grandma in exchange. I'm sure you'll like it!
+- Make Baptiste immune to fire (gain 1 soul)
+	You smirk as you watch Baptiste try to put his hand into the fire without consequences! He seems happy! You obtain one unusually bright pigeon's blood ruby!
+	[signal arg="choice1"]
+- Tell Baptise he is shifty and ask him how he's supposed to go to school after staying up all night long trying to summon you.
+	"Unknown Human": Huh? I am not shifty! I am not shifty at all! (You hear his parents enter the room to scream at him as you leave)
+	[signal arg="choice2"]
+- Take the ring but do not grant him his wish!
+	How evil... he is burning to death! You obtain one unusually bright pigeon's blood ruby!
+	[signal arg="choice 3"]
