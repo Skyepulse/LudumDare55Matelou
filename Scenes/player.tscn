@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://casvlyfugxq2v"]
 
 [ext_resource type="Script" path="res://Scripts/playerM2.gd" id="1_44jrm"]
-[ext_resource type="Texture2D" uid="uid://dhtm5nlsqqw5w" path="res://media/main_char/main_char_front.png" id="2_bbbga"]
+[ext_resource type="Texture2D" uid="uid://03p0tn0kfc5s" path="res://media/main_char/mainchar_walking_front_2.png" id="2_t7x0y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewp53"]
 radius = 52.0
@@ -23,7 +23,7 @@ one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
-texture = ExtResource("2_bbbga")
+texture = ExtResource("2_t7x0y")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

@@ -83,5 +83,4 @@ func addObject(objectName):
 
 func addSouls(souls):
 	player.addSouls(souls)
-	print('added souls')
 	
