@@ -171,13 +171,13 @@ func show_stats_ui():
 	statsUi.show()
 
 func set_kill_stat(value):
-	KILL_STAT=max(value,100)
+	KILL_STAT=min(value,100)
 	kill_changed.emit()
 
 func set_kiss_stat(value):
-	KISS_STAT=max(value,100)
+	KISS_STAT=min(value,100)
 	kiss_changed.emit()
 	
 func set_marry_stat(value):
-	MARRY_STAT=max(value,100)
+	MARRY_STAT=min(value,100)
 	marry_changed.emit()
