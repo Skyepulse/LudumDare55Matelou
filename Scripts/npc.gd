@@ -33,11 +33,11 @@ func talk():
 
 func start_dial(dial):
 	player.block_movements()
-	
+	player.pause_pentagrams()
 	player.set_kill_stat(kill)
 	player.set_marry_stat(marry)
 	player.set_kiss_stat(kiss)
-	
+	player.isInCorvee = true
 	player.current_npc = self
 	
 	Dialogic.timeline_ended.connect(ended)
@@ -52,6 +52,8 @@ func gift():
 		start_dial("Gifts")
 func ended():
 	player.enable_movements()
+	player.unpause_pentagrams()
+	player.canTalkAfterTimer.start()
 	Dialogic.timeline_ended.disconnect(ended)
 
 func transition(): #This will be overriden
