@@ -6,15 +6,21 @@ extends NPC
 @onready var texture:Texture = preload("res://media/npcs/gos_texture_pixel.png")
 @onready var sprite = $Sprite2D
 
+var order = [
+	0, 10, 2, 10, 3, 10, 5, 10, 4, 10
+]
+
+var order_index = 0
+
 func _ready():
 	dialogs = [
-		"AzazaelMeet", # 0
-		"AzazaelWait", # 1
-		"AzazaelMeet2",# 2
-		"AzazaelMeet3",# 3
-		"AzazaelZouk", # 4
-		"RedSlip",     # 5
-		"RedSlip2"     # 6
+		"GosMeet", # 0
+		"GosMeet2", # 1
+		"GosMeet3",# 2
+		"GosMeet4",# 3
+		"GosFiller", # 4
+		"GosGift1",     # 5
+		"GosGifts"     # 6
 	]
 	sprite.texture =texture
 	sprite.scale.x = 10.4
@@ -26,32 +32,22 @@ func _ready():
 
 func transition():
 	if dialogIndex < 0:
-		dialogIndex = 0
-	elif dialogIndex == 0:
-		dialogIndex = 1
-	elif dialogIndex == 1:
-		if has_waited:
-			dialogIndex = 2
-		else:
-			dialogIndex = 1
-	elif dialogIndex == 2:
-		dialogIndex = 3
+		order_index = 0
+	dialogIndex = order[order_index]
+	order_index = min(order_index+1, order.size()-1)
 
 func on_kiss():
-	if dialogIndex == 0 or dialogIndex == 1:
-		refuse()
+	if dialogIndex == 0:
+		Dialogic.start("GosRefuseKiss")
 	else:
 		PlayerStatCounter.gos["kiss"]+=1
 func on_marry():
-	if dialogIndex == 0 or dialogIndex == 1:
-		refuse()
+	if dialogIndex == 0:
+		Dialogic.start("GosRefuseMarry")
 	else:
 		PlayerStatCounter.gos["marry"]+=1
 func on_kill():
-	if dialogIndex == 0 or dialogIndex == 1:
-		refuse()
+	if dialogIndex == 0:
+		Dialogic.start("GosRefuseKill")
 	else:
 		PlayerStatCounter.gos["kill"]+=1
-
-func refuse():
-	Dialogic.start("AzazaelRefuse")

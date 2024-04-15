@@ -1,0 +1,9 @@
+join Goskeiroanez 1
+Goskeiroanez: Hmm?
+set {Gift} = randi() % 3
+if {Gift} == 0:
+	Goskeiroanez: Cheers, son! that's a barry gift, I'll put it right thare oan mah desk.
+elif {Gift} == 1:
+	Goskeiroanez: Nifty trinket, but wilnae be o' much use tae me.
+else:
+	Goskeiroanez: Ah dae love tae throw garbage straeght intae th' lava, cheers fur th' ammunition.

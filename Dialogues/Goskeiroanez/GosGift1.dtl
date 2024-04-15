@@ -1,0 +1,9 @@
+join Goskeiroanez 1
+Goskeiroanez: Hmm ?
+set {Gift} = randi() % 3
+if {Gift} == 0:
+	Goskeiroanez: Och well, a nifty wee thing ye fund. Is it fur me? I ought tae say son, that's a good way tae start aeff a kinship!
+elif {Gift} == 1:
+	Goskeiroanez: A gift fur me? Well cheers. Nae mah fave, bit we're aff tae a good start.
+else:
+	Goskeiroanez: Straight tae th' buckit wi' that thing, cheers fur yer concern. Dinnae hesitate tae bring that kind o' stuff tae me fur recycling. That kind shouldn't be laying around in hell.
