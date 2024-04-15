@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dlv0tohwk6g58"]
+
+[ext_resource type="Script" path="res://Scripts/item_resource.gd" id="1_hw25j"]
+
+[resource]
+script = ExtResource("1_hw25j")
+name = ""
+azazael_liking = 0
+dolore_liking = 0
+gos_liking = 0
