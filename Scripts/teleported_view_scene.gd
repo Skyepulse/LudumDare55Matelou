@@ -20,7 +20,7 @@ func start_dialog():
 	
 
 func dialog_signal(param):
-	if(chosenDialog == 1):
+	if(chosenDialog == 0):
 		if(param == 'choice1'):
 			addStat('marry', 'Azazael', -1)
 			addSouls(2)
@@ -30,7 +30,7 @@ func dialog_signal(param):
 			addObject('Still beating human heart')
 		elif(param == 'choice3'):
 			addStat('marry', 'Azazael', +1)
-	if(chosenDialog == 2):
+	if(chosenDialog == 1):
 		if(param == 'choice1'):
 			addObject('Preserved Haggish')
 		elif(param == 'choice2'):
@@ -40,7 +40,7 @@ func dialog_signal(param):
 			addSouls(1)
 			addStat('kiss', 'Gos', +1)
 			addStat('marry', 'Azazael', -1)
-	if(chosenDialog == 3):
+	if(chosenDialog == 2):
 		if(param == 'choice1'):
 			addObject('holy water')
 		elif(param == 'choice2'):
@@ -49,7 +49,7 @@ func dialog_signal(param):
 			addStat('kiss', 'Gos', +1)
 		elif(param == 'choice3'):
 			addSouls(1)
-	if(chosenDialog == 4):
+	if(chosenDialog == 3):
 		if(param == 'choice1'):
 			addSouls(1)
 			addObject('Unusually bright pigeon\'s blood ruby')
@@ -58,7 +58,7 @@ func dialog_signal(param):
 			addStat('kiss', 'Dolore', +1)
 		elif(param == 'choice3'):
 			addObject('Unusually bright pigeon\'s blood ruby')
-	if(chosenDialog == 5):
+	if(chosenDialog == 4):
 		if(param == 'choice1'):
 			addObject('Blue teddy bear')
 			addStat('marry', 'Azazael', +1)
@@ -83,4 +83,5 @@ func addObject(objectName):
 
 func addSouls(souls):
 	player.addSouls(souls)
+	print('added souls')
 	
