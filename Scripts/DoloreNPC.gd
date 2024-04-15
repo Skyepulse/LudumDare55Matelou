@@ -20,3 +20,23 @@ func _ready():
 func transition():
 	if dialogIndex < 0:
 		dialogIndex = 0
+		
+func on_kiss():
+	if dialogIndex == 0 or dialogIndex == 1:
+		refuse()
+	else:
+		PlayerStatCounter.dolore["kiss"]+=1
+func on_marry():
+	if dialogIndex == 0 or dialogIndex == 1:
+		refuse()
+	else:
+		PlayerStatCounter.dolore["marry"]+=1
+func on_kill():
+	if dialogIndex == 0 or dialogIndex == 1:
+		refuse()
+	else:
+		PlayerStatCounter.dolore["kill"]+=1
+
+func refuse(
+	pass
+)
