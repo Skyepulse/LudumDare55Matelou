@@ -9,6 +9,7 @@ const BIG_PENTAGRAM_RADIUS = 16
 #to create some pentagrams in the scene
 
 var pentagramPosList = {}
+var instances = {}
 var index = 0
 
 var pentagram = preload("res://Scenes/small_pentagram_scene.tscn")
@@ -58,6 +59,7 @@ func inst(pos : Vector2) -> void :
 		var instance = big_pentagram.instantiate()
 		instance.position = rand_pos
 		add_child(instance)
+		instances[index] = instance
 		instance.get_node("big_pentagram").set_id(index)
 		instance.get_node("big_pentagram").set_stay_time(5)
 		instance.get_node("big_pentagram").set_is_big(true)
@@ -77,6 +79,7 @@ func inst(pos : Vector2) -> void :
 		var instance = pentagram.instantiate()
 		instance.position = rand_pos
 		add_child(instance)
+		instances[index] = instance
 		instance.get_node("small_pentagram").set_id(index)
 		instance.get_node("small_pentagram").set_stay_time(5)
 		instance.get_node("small_pentagram").set_sprite_texture('small')
@@ -121,3 +124,10 @@ func can_instantiate_object(pos, radius, object_scale):
 
 func remove_pentagram(pentagram_id):
 	pentagramPosList.erase(pentagram_id)
+	instances.erase(pentagram_id)
+
+func pause_spawner():
+	time.paused = true
+
+func unpause_spawner():
+	time.paused = false

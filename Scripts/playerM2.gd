@@ -18,6 +18,9 @@ var nearNPC:Node2D = null
 var dashWingUi
 var statsUi
 var kmkUi
+@onready var pentagram_spawner = $'../pentagram_spawner'
+
+var pentagramsPaused = false
 
 var blocked:bool = false;
 
@@ -85,7 +88,6 @@ func _process(_delta):
 	if Input.is_action_pressed("move_right"):
 		if(!has_pressed): has_pressed = true
 		velocity.x += 1
-	
 
 	velocity = velocity.normalized() * SPEED * dashSpeed
 
@@ -201,3 +203,24 @@ func set_kiss_stat(value):
 func set_marry_stat(value):
 	MARRY_STAT=min(value,100)
 	marry_changed.emit()
+
+func pause_pentagrams():
+	pentagramsPaused = true
+	pentagram_spawner.pause_spawner()
+	var pentagrams = pentagram_spawner.instances
+	for pentagram_id in pentagrams:
+		var pentagram = pentagrams[pentagram_id]
+		var controller = pentagram.find_children('*_pentagram')[0]
+
+		controller.pause_pentagram()
+
+func unpause_pentagrams():
+	pentagramsPaused = false
+	pentagram_spawner.unpause_spawner()
+	var pentagrams = pentagram_spawner.instances
+	for pentagram_id in pentagrams:
+		var pentagram = pentagrams[pentagram_id]
+		var controller = pentagram.find_children('*_pentagram')[0]
+
+		controller.resume_pentagram()
+

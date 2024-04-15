@@ -90,5 +90,12 @@ func die():
 
 func _process(delta):
 	if(stayTimer.is_stopped()): return
+	if(stayTimer.paused): return
 	rotation_speed += acceleration * delta
 	sprite.rotation_degrees += rotation_speed * delta
+
+func pause_pentagram():
+	stayTimer.paused = true
+
+func resume_pentagram():
+	stayTimer.paused = false
