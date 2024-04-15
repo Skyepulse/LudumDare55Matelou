@@ -6,6 +6,12 @@ extends NPC
 @onready var azazel_texture:Texture = preload("res://media/npcs/azazael_texture_pixels.png")
 @onready var sprite = $Sprite2D
 
+var order = [
+	0, 10, 2, 10, 3, 10, 5, 10, 4, 10
+]
+
+var order_index = 0
+
 func _ready():
 	dialogs = [
 		"AzazaelMeet",    # 0
@@ -30,23 +36,9 @@ func _ready():
 
 func transition():
 	if dialogIndex < 0:
-		dialogIndex = 0
-		return
-	
-	if randi()%3 == 0: # Actual dialog
-		pass
-	else: # filler 
-		pass
-	
-	if dialogIndex == 0:
-		dialogIndex = 1
-	elif dialogIndex == 1:
-		if has_waited:
-			dialogIndex = 2
-		else:
-			dialogIndex = 1
-	elif dialogIndex == 2:
-		dialogIndex = 3
+		order_index = 0
+	dialogIndex = order[order_index]
+	order_index = min(order_index+1, order.size()-1)
 
 func gift():
 	if firstGift:
