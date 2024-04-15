@@ -1,0 +1,15 @@
+join narratorCorvee 1
+narratorCorvee: (Oh no... I stepped in a pentagram, a human must have summoned me in the overworld.\
+I will have to answer it's demands... what a pain...)
+join "Unknown Human" 1
+"Unknown Human": Huh!?? What? A real demon??\
+I am sorry, I don't have anything to ask really... I actually didn't expect this to work...
+- "What a waste of time. Do you have something to snack on at least?"
+	You obtain a preserved Haggish!
+	[signal arg="choice1"]
+- "You should pick a better hobby, we're a very busy team, ya know."
+	You leave immediately.
+	[signal arg="choice2"]
+- "I don't care, I'm charging the travel expenses."  (gain 1 soul)
+	You gruesomely take his life...
+	[signal arg="choice3"]

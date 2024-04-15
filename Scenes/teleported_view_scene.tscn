@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bl33kpjofbtyu"]
+[gd_scene load_steps=2 format=3 uid="uid://bl33kpjofbtyu"]
+
+[ext_resource type="Script" path="res://Scripts/teleported_view_scene.gd" id="1_osf0j"]
 
 [node name="teleported_view_scene" type="Control"]
 layout_mode = 3
@@ -7,3 +9,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_osf0j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
