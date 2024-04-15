@@ -106,4 +106,28 @@ func caveEvent(event):
 	if(event == 'nothing'):
 		print("nothing")
 
-
+func add_to_stat(statName, value):
+	if statName == 'kiss':
+		kiss += value
+		if(kiss > 100):
+			kiss = 100
+		if(kiss < 0):
+			kiss = 0
+		print("Kiss for: ", name, ' is now', kiss, ' and was', kiss - value)
+	elif statName == 'marry':
+		marry += value
+		if(marry > 100):
+			marry = 100
+		if(marry < 0):
+			marry = 0
+		print("Marry for: ", name, ' is now', kiss, ' and was', kiss - value)
+	elif statName == 'kill':
+		kill += value
+		if(kill > 100):
+			kill = 100
+		if(kill < 0):
+			kill = 0
+		print("kill for: ", name, ' is now', kiss, ' and was', kiss - value)
+	else:
+		print("Stat not found")
+		return

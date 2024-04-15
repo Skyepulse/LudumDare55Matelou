@@ -76,7 +76,8 @@ func dialog_finished():
 	player.onCorveeFinished()
 
 func addStat(statname, NPCname, value):
-	pass
+	var npc = get_tree().get_root().get_node("mainScene").get_node(NPCname)
+	npc.add_to_stat(statname, value * 10)
 
 func addObject(objectName):
 	pass
