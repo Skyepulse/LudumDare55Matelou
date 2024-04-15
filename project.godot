@@ -28,6 +28,7 @@ directories/dtl_directory={
 "AzazaelMeet": "res://Dialogues/Azazael/AzazaelMeet.dtl",
 "AzazaelMeet2": "res://Dialogues/Azazael/AzazaelMeet2.dtl",
 "AzazaelMeet3": "res://Dialogues/Azazael/AzazaelMeet3.dtl",
+"AzazaelWait": "res://Dialogues/Azazael/AzazaelWait.dtl",
 "AzazaelZouk": "res://Dialogues/Azazael/AzazaelZouk.dtl",
 "Gift1": "res://Dialogues/Azazael/Gift1.dtl",
 "Gifts": "res://Dialogues/Azazael/Gifts.dtl",
