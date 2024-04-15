@@ -4,7 +4,9 @@ extends Node2D
 @export var dialogs:Array
 @export var player:CharacterBody2D = null
 var next_state = null
-
+@onready var azazel_texture = preload("res://media/npcs/azazael_texture_pixels.png")
+@onready var gos_texture = preload("res://media/npcs/gos_texture_pixel.png")
+@onready var dolore_texture = preload("res://media/npcs/dolore_texture_pixel.png")
 var dialogIndex = -1;
 var firstGift = true
 
@@ -20,6 +22,19 @@ func _ready():
 	if name == 'Cave Of Lost Souls':
 		var sprite = get_node("Sprite2D")
 		sprite.set_visible(false)
+	
+	if name == 'Azazael':
+		var sprite = get_node("Sprite2D")
+		sprite.set_visible(true)
+		sprite.texture = azazel_texture
+	if name == 'Gos':
+		var sprite = get_node("Sprite2D")
+		sprite.set_visible(false)
+		sprite.texture = gos_texture
+	if name == 'Dolore':
+		var sprite = get_node("Sprite2D")
+		sprite.set_visible(false)
+		sprite.texture = dolore_texture
 	
 func talk():
 	if(name == 'Cave Of Lost Souls'):
