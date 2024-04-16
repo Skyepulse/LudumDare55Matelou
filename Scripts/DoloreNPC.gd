@@ -40,17 +40,20 @@ func transition():
 	order_index = min(order_index+1, order.size()-1)
 		
 func on_kiss():
-	if dialogIndex == 0 or dialogIndex == 1:
+	var proba = randi_range (0,100)
+	if proba>kiss:
 		Dialogic.start("DoloreRefuseKiss")
 	else:
 		PlayerStatCounter.dolore["kiss"]+=1
 func on_marry():
-	if dialogIndex == 0 or dialogIndex == 1:
+	var proba = randi_range (0,100)
+	if proba>marry:
 		Dialogic.start("DoloreRefuseMarry")
 	else:
 		PlayerStatCounter.dolore["marry"]+=1
 func on_kill():
-	if dialogIndex == 0 or dialogIndex == 1:
+	var proba = randi_range (0,100)
+	if proba>kill:
 		Dialogic.start("DoloreRefuseKill")
 	else:
 		PlayerStatCounter.dolore["kill"]+=1

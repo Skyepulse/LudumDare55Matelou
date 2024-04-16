@@ -29,9 +29,9 @@ func _ready():
 	sprite.texture =azazel_texture
 	sprite.scale.x = 10.4
 	sprite.scale.y = 10.4
-	kiss = 0
-	marry = 0
-	kill = 0
+	kiss = 30
+	marry = 40
+	kill = 30
 
 
 func transition():
@@ -48,20 +48,26 @@ func gift():
 		return dialogs[9]
 
 func on_kiss():
-	if dialogIndex == 0 or dialogIndex == 1:
+	var proba = randi_range (0,100)
+	if proba>kiss:
 		refuse()
 	else:
 		PlayerStatCounter.azazael["kiss"]+=1
+		self.start_dial("AzazaelAcceptKiss")
 func on_marry():
-	if dialogIndex == 0 or dialogIndex == 1:
+	var proba = randi_range (0,100)
+	if proba>marry:
 		refuse()
 	else:
 		PlayerStatCounter.azazael["marry"]+=1
+		self.start_dial("AzazaelAcceptMarry")
 func on_kill():
-	if dialogIndex == 0 or dialogIndex == 1:
+	var kill_proba = randi_range (0,100)
+	if kill_proba>kill:
 		refuse()
 	else:
 		PlayerStatCounter.azazael["kill"]+=1
+		self.start_dial("AzazaelAcceptKill")
 
 func refuse():
 	Dialogic.start("AzazaelRefuse")

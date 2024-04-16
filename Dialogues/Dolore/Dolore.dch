@@ -15,36 +15,9 @@
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"Kill": {
-"export_overrides": {
-"image": "\"res://media/npcs/dolore_kill.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
-},
 "Main": {
 "export_overrides": {
 "image": "\"res://media/npcs/bdsm_demon.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
-},
-"Marry": {
-"export_overrides": {
-"image": "\"res://media/npcs/dolore_marry.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
-},
-"Pissed": {
-"export_overrides": {
-"image": "\"res://media/npcs/pissed_off_dolore.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
