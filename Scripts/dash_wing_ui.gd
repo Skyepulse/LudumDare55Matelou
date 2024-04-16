@@ -167,7 +167,7 @@ func _process(delta):
 			for pan in inventoryPanels:
 				if(pan.get_node('Label').text == "0"):
 					continue
-				if(mouseDict[pan]):
+				if(mouseDict[pan] and pan.get_node('Label').text != "0"):
 					has_clicked = true
 					chosen_pan = pan
 					isChoosing = false
@@ -182,3 +182,4 @@ func _process(delta):
 			player.finished_choosing_gift(objectDict[chosen_pan])
 			panelContainer.show()
 			panelContainer2.show()
+			mouseDict = {}
