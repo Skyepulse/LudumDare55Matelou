@@ -218,6 +218,9 @@ func _process(_delta):
 	if(not blocked and Input.is_action_just_pressed("interact") and nearNPC != null and !isInCorvee):
 		print("Interacting with NPC")
 		nearNPC.talk()
+	if(not blocked and Input.is_action_just_pressed("gift") and nearNPC != null and !isInCorvee):
+		print("Interacting with NPC")
+		nearNPC.gift()
 
 func move_camera():
 	#We implement a small lag for the camera to follow the player
@@ -282,7 +285,7 @@ func update_talk_label():
 			talkLabel.text = "Press E to interact with" + nearNPC.name + " (" + str(soulsNumber) + " souls)"
 			talkLabel.visible = true
 		else:
-			talkLabel.text = "Press E to talk to " + nearNPC.name + "!"
+			talkLabel.text = "Press E to talk to " + nearNPC.name + "! And G to gift!"
 			talkLabel.visible = true
 
 func block_movements():
@@ -372,3 +375,24 @@ func _on_change_texture_timer_timeout():
 	else:
 		sprite.texture = walkIdleTextureLeft
 	changeTextureTimer.start()
+
+func choose_gift():
+	print('here')
+	isInCorvee = true
+	pause_pentagrams()
+	block_movements()
+	statsUi.hide()
+	kmkUi.hide()
+	dashWingUi.show()
+	dashWingUi.choose_gift()
+
+func finished_choosing_gift(nname):
+	unpause_pentagrams()
+	enable_movements()
+	canTalkAfterTimer.start()
+	if(inventory.has(nname)):
+		inventory[nname] -= 1
+		if(inventory[nname] == 0):
+			inventory.erase(nname)
+	update_inventory_ui()
+	nearNPC.finish_giving_gift(nname)
