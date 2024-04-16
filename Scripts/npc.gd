@@ -41,7 +41,18 @@ func start_dial(dial):
 	player.current_npc = self
 	
 	Dialogic.timeline_ended.connect(ended)
+	Dialogic.signal_event.connect(get_signal_event)
 	Dialogic.start(dial)
+
+func get_signal_event(arg: Dictionary):
+	if arg.has("kiss"):
+		kiss += arg.get("kiss")
+	if arg.has("marry"):
+		marry += arg.get("marry")
+	if arg.has("kill"):
+		kill += arg.get("kill")
+	
+	Dialogic.signal_event.disconnect(get_signal_event)
 
 func gift():
 	start_dial(choose_gift())
