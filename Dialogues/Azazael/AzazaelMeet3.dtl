@@ -2,5 +2,7 @@ join Azazael 1
 Azazael: Great, talking to you was most definitely a thing I wanted.
 - You're kind of an asshole.
 	Azazael: Yeah, it's this awful place washing off on me.
+	[signal arg_type="dict" arg="{"kiss":"-1"}"]
 - I thought you'd like some company, being all alone around here isn't nice.
 	Azazael: Being here isn't nice at all. But... you're right, it's a bit less awful when you're with me.
+	[signal arg_type="dict" arg="{"marry":"10"}"]
