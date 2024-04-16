@@ -63,7 +63,7 @@ func on_kill():
 	if proba>kill:
 		Dialogic.start("DoloreRefuseKill")
 	else:
-		self.start_dial("AcceptKill")
+		self.start_dial("DoloreAcceptKill")
 		PlayerStatCounter.dolore["kill"]+=1
 
 func reset():
