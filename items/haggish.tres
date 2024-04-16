@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dm2eap376ippo"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://csu28hg0dxhb6"]
 
 [ext_resource type="Texture2D" uid="uid://k36svo2cv1vr" path="res://media/items/preserved_haggish.png" id="1_8bgww"]
 [ext_resource type="Script" path="res://Scripts/item_resource.gd" id="1_hls51"]

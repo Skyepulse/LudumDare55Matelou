@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c02ef2kf11cum"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://boyhivpdx4jax"]
 
 [ext_resource type="Texture2D" uid="uid://elyfgvdc54vn" path="res://media/items/vial_of_holy_water.png" id="1_bsb4y"]
 [ext_resource type="Script" path="res://Scripts/item_resource.gd" id="1_ebum2"]

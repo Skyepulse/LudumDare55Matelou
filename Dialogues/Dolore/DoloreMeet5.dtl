@@ -2,5 +2,7 @@ join Dolore 1
 Dolore: Hey mate, would you like to come brainstorm torture ideas with me? Pinky promise I won't try them on you.
 - I'm already busy not doing my job, I ain't gonna do yours.
 	Dolore: You're damn right mate, good luck dodging those pentacles.
+	[signal arg_type="dict" arg="{"kiss":"10"}"]
 - Phew, you're my kind of guy! How about some switching as well?
 	Dolore: Phew, you're my kind of guy! How about some switching as well?
+	[signal arg_type="dict" arg="{"kiss":"20","marry":"10"}"]
