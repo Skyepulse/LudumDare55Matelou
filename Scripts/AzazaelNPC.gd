@@ -40,7 +40,7 @@ func transition():
 	dialogIndex = order[order_index]
 	order_index = min(order_index+1, order.size()-1)
 
-func gift():
+func choose_gift():
 	if firstGift:
 		firstGift = false
 		return dialogs[8]

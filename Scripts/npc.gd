@@ -7,10 +7,16 @@ var next_state = null
 
 var dialogIndex = -1;
 var firstGift = true
-
+@onready var beatingHeartItemType:Resource = preload("res://items/heart.tres")
+@onready var holyWater:Resource = preload("res://items/water.tres")
+@onready var blueTeddyBear:Resource = preload("res://items/tedyy.tres")
+@onready var pigeonBloodRuby:Resource = preload("res://items/bloodRuby.tres")
+@onready var preservedHaggish:Resource = preload("res://items/haggish.tres")
 var kiss = 0
 var marry = 0
 var kill = 0
+
+enum Liking {LOVE, NEUTRAL, HATE, NONE}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,10 +50,171 @@ func start_dial(dial):
 	Dialogic.start(dial)
 
 func gift():
+	if(player.get_inventory().size() == 0):
+		return
+	else:
+		player.choose_gift()
+
+func finish_giving_gift(giftName):
+	if(name == 'Azazael'):
+		if(giftName ==beatingHeartItemType.name):
+			var like = beatingHeartItemType.azazael_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == holyWater.name):
+			var like = holyWater.azazael_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == blueTeddyBear.name):
+			var like = blueTeddyBear.azazael_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == pigeonBloodRuby.name):
+			var like = pigeonBloodRuby.azazael_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == preservedHaggish.name):
+			var like = preservedHaggish.azazael_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+	elif(name == 'Gos'):
+		if(giftName ==beatingHeartItemType.name):
+			var like = beatingHeartItemType.gos_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == holyWater.name):
+			var like = holyWater.gos_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == blueTeddyBear.name):
+			var like = blueTeddyBear.gos_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == pigeonBloodRuby.name):
+			var like = pigeonBloodRuby.gos_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == preservedHaggish.name):
+			var like = preservedHaggish.gos_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+	elif(name == 'Dolore'):
+		if(giftName == beatingHeartItemType.name):
+			var like = beatingHeartItemType.dolore_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == holyWater.name):
+			var like = holyWater.dolore_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == blueTeddyBear.name):
+			var like = blueTeddyBear.dolore_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == pigeonBloodRuby.name):
+			var like = pigeonBloodRuby.dolore_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
+		elif(giftName == preservedHaggish.name):
+			var like = preservedHaggish.dolore_liking
+			if(like == Liking.NONE):
+				return
+			elif(like == Liking.HATE):
+				Dialogic.VAR.set("Gift", 2)
+			elif(like == Liking.LOVE):
+				Dialogic.VAR.set("Gift", 0)
+			elif(like == Liking.NEUTRAL):
+				Dialogic.VAR.set("Gift", 1)
 	start_dial(choose_gift())
+			
 
 func choose_gift(): # To override
 	pass
+
 func ended():
 	player.enable_movements()
 	player.unpause_pentagrams()
