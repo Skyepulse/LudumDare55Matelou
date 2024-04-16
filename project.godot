@@ -30,6 +30,9 @@ directories/dch_directory={
 "caveSoul": "res://Dialogues/Cave/caveSoul.dch"
 }
 directories/dtl_directory={
+"AzazaelAcceptKill": "res://Dialogues/Azazael/AzazaelAcceptKill.dtl",
+"AzazaelAcceptKiss": "res://Dialogues/Azazael/AzazaelAcceptKiss.dtl",
+"AzazaelAcceptMarry": "res://Dialogues/Azazael/AzazaelAcceptMarry.dtl",
 "AzazaelFiller": "res://Dialogues/Azazael/AzazaelFiller.dtl",
 "AzazaelGift1": "res://Dialogues/Azazael/AzazaelGift1.dtl",
 "AzazaelGifts": "res://Dialogues/Azazael/AzazaelGifts.dtl",
