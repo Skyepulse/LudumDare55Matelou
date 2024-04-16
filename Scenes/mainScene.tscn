@@ -50,3 +50,7 @@ player = NodePath("../CharacterBody2D")
 [node name="Cave Of Lost Souls" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_fedcy")]
 position = Vector2(2937, 5616)
 player = NodePath("../CharacterBody2D")
+
+[connection signal="sig_azazael" from="Cave Of Lost Souls" to="Azazael" method="_on_cave_of_lost_souls_sig_azazael"]
+[connection signal="sig_dolore" from="Cave Of Lost Souls" to="Dolore" method="_on_cave_of_lost_souls_sig_dolore"]
+[connection signal="sig_gos" from="Cave Of Lost Souls" to="Gos" method="_on_cave_of_lost_souls_sig_gos"]

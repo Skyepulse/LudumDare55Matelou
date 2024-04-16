@@ -65,4 +65,19 @@ func on_kill():
 
 func refuse():
 	Dialogic.start("AzazaelRefuse")
+
+func reset():
 	
+	kiss = 20
+	marry = 30
+	kill = 50
+	
+	PlayerStatCounter.azazael["kiss"]=0
+	PlayerStatCounter.azazael["marry"]=0
+	PlayerStatCounter.azazael["kill"]=0
+	
+	print("Azazael was reset")
+
+
+func _on_cave_of_lost_souls_sig_azazael():
+	reset()

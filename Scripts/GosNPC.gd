@@ -22,6 +22,7 @@ func _ready():
 	kiss = 20
 	marry = 20
 	kill = 20
+	
 
 
 func transition():
@@ -55,3 +56,17 @@ func on_kill():
 
 func refuse():
 	Dialogic.start("AzazaelRefuse")
+	
+func reset():
+	kiss = 20
+	marry = 30
+	kill = 50
+	
+	PlayerStatCounter.gos["kiss"]=0
+	PlayerStatCounter.gos["marry"]=0
+	PlayerStatCounter.gos["kill"]=0
+	print("Gos was reset")
+
+
+func _on_cave_of_lost_souls_sig_gos():
+	reset()
