@@ -49,7 +49,7 @@ func on_kiss():
 	if proba>kiss:
 		Dialogic.start("GosRefuseKiss")
 	else:
-		self.start_dial("GossAcceptKiss")
+		self.start_dial("GosAcceptKiss")
 		PlayerStatCounter.gos["kiss"]+=1
 func on_marry():
 	var proba = randi_range (0,100)
