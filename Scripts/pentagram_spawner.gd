@@ -25,28 +25,28 @@ func _ready():
 	#timer restarts when it is done
 	time.one_shot = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#testing
 	if Input.is_action_just_pressed("test_pent"):
 		#instantiate the pentagram
 		var pos = player.global_position
 		inst(pos)
 		
-func random_pos(position, pentagram_size):
+func random_pos(pPosition, pentagram_size):
 	var randomx = 0.0
 	var randomy = 0.0
-	var safety_diameter = 100
+	var _safety_diameter = 100
 	var spawn_range = 256.0
 	if (pentagram_size == "big"):
-		safety_diameter = 200
+		_safety_diameter = 200
 		spawn_range = 400.0
-	while (Vector2(position.x+randomx,position.y+randomy).distance_to(position)<200.0):
+	while (Vector2(pPosition.x+randomx,pPosition.y+randomy).distance_to(pPosition)<200.0):
 		#select a random cell around the player
 		randomx = rng.randf_range(-spawn_range, spawn_range)
 		randomy = rng.randf_range(-spawn_range, spawn_range)
 	
 	#make sure it doesn't spawn on the player
-	return Vector2(position.x+randomx, position.y+randomy)
+	return Vector2(pPosition.x+randomx, pPosition.y+randomy)
 	
 func inst(pos : Vector2) -> void :	
 	var rand_num = rng.randf_range(0, 1)

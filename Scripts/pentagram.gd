@@ -20,8 +20,8 @@ var isPlayerInside: bool = false
 
 var isBig:bool = false
 
-func set_is_big(isBig : bool) -> void:
-	self.isBig = isBig
+func set_is_big(pIsBig : bool) -> void:
+	isBig = pIsBig
 
 var colorTileMapPositionSmall = [0, 16, 32]
 var colorTileMapPositionBig = [48, 80, 112]

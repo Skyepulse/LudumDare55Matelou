@@ -32,7 +32,7 @@ func _ready():
 	panelContainer2 = $wings/VBoxContainer/HBoxContainer2
 	var panel = panelContainer2.get_node("Panel")
 	var spr = panel.get_node("Sprite2D")
-	spr.set_scale(Vector2(SPRITE_SCALE/2, SPRITE_SCALE/2))
+	spr.set_scale(Vector2(SPRITE_SCALE/2., SPRITE_SCALE/2.))
 	var spriteS = spr.get_texture().get_size()*SPRITE_SCALE/2
 	panel.set_custom_minimum_size(Vector2(spriteS.x, spriteS.y))
 	spr.set_position(Vector2(spriteS.x/2, spriteS.y/2))
@@ -120,7 +120,6 @@ func update_inventory(inventory:Dictionary):
 		label.text = str(inventory[key])
 		sp.set_scale(Vector2(INVENTORY_SPRITE_SCALE, INVENTORY_SPRITE_SCALE))
 		var pos = pan.position
-		var panName = pan.name
 		var middle = pos + Vector2(-pan.size.x/2 - (pan.size.x)*(max(0, keynum)) - 8, pan.size.y/2)
 		sp.position = middle
 		print(pan.name, key, inventory[key])
@@ -159,7 +158,7 @@ func _on_mouse_exited_panel(pan):
 	mouseDict[pan] = false
 	print('Mouse exited panel', pan.name)
 
-func _process(delta):
+func _process(_delta):
 	if(isChoosing):
 		if(Input.is_action_just_pressed("click")):
 			var has_clicked = false
