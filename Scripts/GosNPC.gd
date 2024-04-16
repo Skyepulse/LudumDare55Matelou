@@ -42,18 +42,21 @@ func on_kiss():
 	if proba>kiss:
 		Dialogic.start("GosRefuseKiss")
 	else:
+		self.start_dial("GossAcceptKiss")
 		PlayerStatCounter.gos["kiss"]+=1
 func on_marry():
 	var proba = randi_range (0,100)
 	if proba>marry:
 		Dialogic.start("GosRefuseMarry")
 	else:
+		self.start_dial("GosAcceptMarry")
 		PlayerStatCounter.gos["marry"]+=1
 func on_kill():
 	var proba = randi_range (0,100)
 	if proba>kill:
 		Dialogic.start("GosRefuseKill")
 	else:
+		self.start_dial("GosAcceptKill")
 		PlayerStatCounter.gos["kill"]+=1
 
 func refuse():
