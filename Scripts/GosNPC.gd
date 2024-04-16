@@ -7,7 +7,7 @@ extends NPC
 @onready var sprite = $Sprite2D
 
 var order = [
-	0, 10, 2, 10, 3, 10, 5, 10, 4, 10
+	0, 4, 1, 4, 2, 4, 3, 4
 ]
 
 var order_index = 0

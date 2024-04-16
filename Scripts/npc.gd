@@ -46,11 +46,18 @@ func start_dial(dial):
 
 func get_signal_event(arg: Dictionary):
 	if arg.has("kiss"):
-		kiss += arg.get("kiss")
+		kiss += int(arg.get("kiss"))
+		print("kiss += ", arg.get("kiss"))
 	if arg.has("marry"):
-		marry += arg.get("marry")
+		marry += int(arg.get("marry"))
+		print("marry += ", arg.get("marry"))
 	if arg.has("kill"):
-		kill += arg.get("kill")
+		kill += int(arg.get("kill"))
+		print("kill += ", arg.get("kill"))
+	
+	player.set_kill_stat(kill)
+	player.set_marry_stat(marry)
+	player.set_kiss_stat(kiss)
 	
 	Dialogic.signal_event.disconnect(get_signal_event)
 

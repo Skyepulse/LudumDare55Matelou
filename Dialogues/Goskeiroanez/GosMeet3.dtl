@@ -4,7 +4,10 @@ Goskeiroanez: What's yer opinion on humans?
 	Goskeiroanez: Oh, aye, I see ye trust the system then. That's braw, aye, that's braw...
 - I think we should reform our admission process.
 	Goskeiroanez: Oh, really? Any idea how tae dae that?
+	[signal arg_type="dict" arg="{"kiss":"10"}"]
 	- We should have a neutral zone for minorities that get discriminated against by religions.
-		Goskeiroanez: Huh, that's quite the statement. I used tae be a cleric, ye ken?
+		Goskeiroanez (Laughing): Huh, that's quite the statement. I used tae be a cleric, ye ken?
+		[signal arg_type="dict" arg="{"marry":"10"}"]
 	- There should be a system to get out after a given amount of repentance.
-		Goskeiroanez: Ye're a rebellious spirit, eh?
+		Goskeiroanez (Laughing): Ye're a rebellious spirit, eh?
+		[signal arg_type="dict" arg="{"kiss":"10"}"]
