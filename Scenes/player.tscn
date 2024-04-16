@@ -11,6 +11,7 @@ height = 162.0
 radius = 182.26
 
 [sub_resource type="LabelSettings" id="LabelSettings_fs2p4"]
+font_size = 40
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 22
@@ -35,11 +36,15 @@ shape = SubResource("CircleShape2D_5hwhu")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(200, 50)
-offset_left = -72.0
-offset_top = 68.0
-offset_right = -32.0
-offset_bottom = 91.0
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 70.0
+offset_right = 50.0
+offset_bottom = 125.0
+grow_horizontal = 2
 label_settings = SubResource("LabelSettings_fs2p4")
 horizontal_alignment = 1
 
