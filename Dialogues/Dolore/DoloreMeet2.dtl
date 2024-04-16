@@ -2,6 +2,7 @@ join Dolore 1
 Dolore: Hey hot stuff, how's it going? Have you upped your skills?
 - Yeah, I'm getting close to beating your ass.
 	Dolore: Can't effing wait mate, hope you've picked up whipping as a hobby.
+	[signal arg_type="dict" arg="{"kiss":"10"}"]
 - I'd need some lessons from an experienced demon.
 	Dolore: Asking for help is a great skill, but you should go to school buddy. I mean, it's here for that. And Gos' has a soft spot for eager students, wink.
 	Dolore: ...
