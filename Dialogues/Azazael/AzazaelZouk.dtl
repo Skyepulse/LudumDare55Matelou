@@ -3,8 +3,9 @@ Azazael: Oh, hello there. My quest for the exit has not progressed much, but I'v
 - Isn't that risky for your job?
 	... I mean, it's not like I can do my job from here anyway.
 - Wouldn't you like to learn to dance zouk instead? You, me, music, at my place.
-	if randi() % 3 >= 0:
+	if randi() % 2 > 0:
 		Azazael: You know what? Yeah, let's go.
+		[signal arg_type="dict" arg="{"kiss":"100"}"]
 		[wait time="1.0"]
 		update Azazael [animation="Bounce In" mirrored="true"]
 		Azazael: That's... way more fun than I expected it to be. It feels like a good time to do something stupid.

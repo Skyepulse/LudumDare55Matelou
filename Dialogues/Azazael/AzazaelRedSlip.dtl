@@ -1,2 +1,3 @@
 join Azazael 1
 Azazael: You... you got it for me? That's so amazing, thank you! I'm leaving right now!
+[signal arg_type="dict" arg="{"marry":"20"}"]
