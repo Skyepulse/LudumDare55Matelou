@@ -12,6 +12,11 @@ var panels
 @onready var blueTeddyBear:Resource = preload("res://items/tedyy.tres")
 @onready var pigeonBloodRuby:Resource = preload("res://items/bloodRuby.tres")
 @onready var preservedHaggish:Resource = preload("res://items/haggish.tres")
+@onready var player = get_tree().get_root().get_node("mainScene").get_node("CharacterBody2D")
+
+var mouseDict = {}
+var objectDict = {}
+var isChoosing = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -75,6 +80,8 @@ func update_inventory(inventory:Dictionary):
 	elif(randomKey == preservedHaggish.name):
 		sprite.texture = preservedHaggish.icon
 	
+	objectDict[inventoryPanel] = randomKey
+	
 	inventoryPanel.get_node("Label").text = str(inventory[randomKey])
 	
 	sprite.set_scale(Vector2(INVENTORY_SPRITE_SCALE, INVENTORY_SPRITE_SCALE))
@@ -109,6 +116,7 @@ func update_inventory(inventory:Dictionary):
 			sp.texture = pigeonBloodRuby.icon
 		elif(key == preservedHaggish.name):
 			sp.texture = preservedHaggish.icon
+		objectDict[pan] = key
 		label.text = str(inventory[key])
 		sp.set_scale(Vector2(INVENTORY_SPRITE_SCALE, INVENTORY_SPRITE_SCALE))
 		var pos = pan.position
@@ -129,3 +137,48 @@ func _on_panel_mouse_exited():
 		if(pan.name == "Panel"):
 			continue
 		pan.hide()
+
+func choose_gift():
+	isChoosing = true
+	inventoryPanel.mouse_entered.disconnect(_on_panel_mouse_entered)
+	inventoryPanel.mouse_exited.disconnect(_on_panel_mouse_exited)
+	panelContainer.hide()
+	panelContainer2.hide()
+	for pan in inventoryPanels:
+		print(pan.name)
+		pan.show()
+		mouseDict[pan] = false
+		pan.mouse_entered.connect(_on_mouse_entered_panel.bind(pan))
+		pan.mouse_exited.connect(_on_mouse_entered_panel.bind(pan))
+
+func _on_mouse_entered_panel(pan):
+	mouseDict[pan] = true
+	print('Mouse entered panel', pan.name)
+
+func _on_mouse_exited_panel(pan):
+	mouseDict[pan] = false
+	print('Mouse exited panel', pan.name)
+
+func _process(delta):
+	if(isChoosing):
+		if(Input.is_action_just_pressed("click")):
+			var has_clicked = false
+			var chosen_pan
+			for pan in inventoryPanels:
+				if(pan.get_node('Label').text == "0"):
+					continue
+				if(mouseDict[pan]):
+					has_clicked = true
+					chosen_pan = pan
+					isChoosing = false
+					inventoryPanel.mouse_entered.connect(_on_panel_mouse_entered)
+					inventoryPanel.mouse_exited.connect(_on_panel_mouse_exited)
+			if(!has_clicked):
+				return
+			for pann in inventoryPanels:
+				pann.mouse_entered.disconnect(_on_mouse_entered_panel.bind(pann))
+				pann.mouse_exited.disconnect(_on_mouse_entered_panel.bind(pann))
+			update_inventory(player.get_inventory())
+			player.finished_choosing_gift(objectDict[chosen_pan])
+			panelContainer.show()
+			panelContainer2.show()
