@@ -12,6 +12,11 @@ var kiss = 0
 var marry = 0
 var kill = 0
 
+#signals to reset the relationships
+signal sig_azazael
+signal sig_gos 
+signal sig_dolore
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	next_state = null
@@ -83,13 +88,14 @@ func start_cave_dialog():
 	
 	Dialogic.timeline_ended.connect(caveEnded)
 	Dialogic.signal_event.connect(caveEvent)
+	Dialogic.VAR.set("Souls", player.getSoulNumber())
 	Dialogic.start("caveDialog")
 
 func caveEnded():
 	player.timeUi.hide()
 	Dialogic.signal_event.disconnect(caveEvent)
 	Dialogic.timeline_ended.disconnect(caveEnded)
-	Dialogic.VAR.set("Souls", player.getSoulNumber())
+	
 	player.enable_movements()
 	player.unpause_pentagrams()
 	player.canTalkAfterTimer.start()
@@ -97,12 +103,16 @@ func caveEnded():
 func caveEvent(event):
 	if(event == "resetAzazael"):
 		player.removeSouls(10)
+		emit_signal("sig_azazael")
 		print("resetAzazael")
+
 	if(event == "resetGos"):
 		player.removeSouls(10)
+		emit_signal("sig_gos")
 		print("resetGos")
 	if(event == "resetDolore"):
 		player.removeSouls(10)
+		emit_signal("sig_dolore")
 		print("resetDolore")
 	if(event == 'nothing'):
 		print("nothing")

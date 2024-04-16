@@ -32,6 +32,7 @@ func _ready():
 	kill = 50
 
 
+
 func transition():
 	if dialogIndex < 0:
 		order_index = 0
@@ -54,3 +55,16 @@ func on_kill():
 	else:
 		PlayerStatCounter.dolore["kill"]+=1
 
+func reset():
+	kiss = 20
+	marry = 30
+	kill = 50
+	
+	PlayerStatCounter.dolore["kiss"]=0
+	PlayerStatCounter.dolore["marry"]=0
+	PlayerStatCounter.dolore["kill"]=0
+	print("Dolore was reset")
+
+
+func _on_cave_of_lost_souls_sig_dolore():
+	reset()
