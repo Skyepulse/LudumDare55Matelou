@@ -30,6 +30,13 @@ func _ready():
 	kill = 20
 	
 
+func choose_gift():
+	if firstGift:
+		firstGift = false
+		return dialogs[5]
+	else:
+		return dialogs[6]
+
 
 func transition():
 	if dialogIndex < 0:

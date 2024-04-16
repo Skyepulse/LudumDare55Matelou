@@ -31,7 +31,12 @@ func _ready():
 	marry = 30
 	kill = 50
 
-
+func choose_gift():
+	if firstGift:
+		firstGift = false
+		return dialogs[7]
+	else:
+		return dialogs[8]
 
 func transition():
 	if dialogIndex < 0:
