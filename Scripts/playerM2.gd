@@ -387,9 +387,6 @@ func choose_gift():
 	dashWingUi.choose_gift()
 
 func finished_choosing_gift(nname):
-	unpause_pentagrams()
-	enable_movements()
-	canTalkAfterTimer.start()
 	if(inventory.has(nname)):
 		inventory[nname] -= 1
 		if(inventory[nname] == 0):
