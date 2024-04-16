@@ -1,3 +1,4 @@
+join Azazael 1
 Azazael: Hmm ?
 set {Gift} = randi() % 3
 if {Gift} == 0:

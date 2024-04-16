@@ -2,15 +2,19 @@ join Azazael 1
 Oh, hey! How have you been?
 - Just the usual, demon work stuff you know.
 	Azazael: Oh. Yes. I forgot you worked here for a second...
+	[signal arg_type="dict" arg="{"marry":"-10"}"]
 - I'm trying to overthrow the hierarchy.
 	Azazael: Haha, it's not the first time a Demon tries that. How has it been going?
+	[signal arg_type="dict" arg="{"kiss":"10"}"]
 	if {has_union_card} == true:
 		- I've joined the Union, it looks promising.
-			That's great! I hope you'll be able to teach the other demons some of your empathy.
+			Azazael: That's great! I hope you'll be able to teach the other demons some of your empathy.
+			[signal arg_type="dict" arg="{"marry":"10"}"]
 		- Angels also have insane work hours you know. Wanna join a union?
-			Well, you know, we're all kind of workaholics. If it were not the case, maybe I'd be enjoying this 	as a vacation.
+			Azazael: Well, you know, we're all kind of workaholics. If it were not the case, maybe I'd be enjoying this 	as a vacation.
 	else:
 		- I'm just starting out. Wanna be my cofounder?
-			Oh, huh... On one hand, I would love to overthrow Hell's order, on the other... that wouldn't be 	lawful of me, would it?
+			Azazael: Oh, huh... On one hand, I would love to overthrow Hell's order, on the other... that wouldn't be 	lawful of me, would it?
 		- For now I'm just writing a manifest. I think humans should have more opportunities to repent.
-			Wow, I didn't expect that from a demon! I'm starting to believe you're not as bad as I thought.
+			[signal arg_type="dict" arg="{"kiss":"20"}"]
+			Azazael: Wow, I didn't expect that from a demon! I'm starting to believe you're not as bad as I thought.
