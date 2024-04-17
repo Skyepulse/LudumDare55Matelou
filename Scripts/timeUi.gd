@@ -7,8 +7,11 @@ var time_left = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	time_left = mainScene.gameTimer.time_left
-	time_left = (int(time_left))
-	var minutes = time_left / 60
-	var seconds = time_left % 60
-	timeLabel.text = 'Time Left: ' + str(minutes) + ':' + str(seconds)
+	if mainScene.gameTimer and mainScene.gameTimer.is_stopped():
+		timeLabel.text = 'Game ended'
+	else:
+		time_left = mainScene.gameTimer.time_left
+		time_left = (int(time_left))
+		var minutes = time_left / 60
+		var seconds = time_left % 60
+		timeLabel.text = 'Time Left: ' + str(minutes) + ':' + str(seconds)
