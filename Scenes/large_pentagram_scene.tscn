@@ -22,7 +22,4 @@ texture = SubResource("AtlasTexture_vu7nd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ixfj2")
 one_way_collision_margin = 32.0
-<<<<<<< HEAD
-=======
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
->>>>>>> pierina
